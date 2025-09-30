@@ -1,8 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, MapPin, Globe, Users, Calendar, CheckCircle, Pencil, MessageSquare, Building2, ExternalLink } from "lucide-react"
+import { Star, MapPin, Globe, Users, Calendar, CheckCircle, Shield, Pencil, MessageSquare, Building2, ExternalLink } from "lucide-react"
 import type { FirmProfileData } from "@/lib/data/firms"
 
 interface FirmHeaderProps {
