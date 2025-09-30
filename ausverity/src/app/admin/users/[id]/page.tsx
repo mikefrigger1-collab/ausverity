@@ -19,15 +19,16 @@ import Link from 'next/link'
 import UserRoleManager from '@/components/admin/UserRoleManager'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function UserDetailPage({ params }: PageProps) {
+  const { id } = await params
   const user = await db.user.findUnique({
     where: {
-      id: params.id
+      id
     },
     include: {
       lawyer: {

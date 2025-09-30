@@ -17,9 +17,9 @@ import Link from 'next/link'
 import ApprovalActions from '@/components/admin/ApprovalActions'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function ApprovalDetailPage({ params }: PageProps) {
