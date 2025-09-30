@@ -1,0 +1,163 @@
+'use client'
+
+import { useState } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Plus, X, Gavel } from 'lucide-react'
+
+export interface CourtAppearance {
+  id?: string
+  courtName: string
+  jurisdiction: string
+  appearanceCount: number
+}
+
+interface CourtAppearancesSectionProps {
+  value: CourtAppearance[]
+  onChange: (appearances: CourtAppearance[]) => void
+}
+
+const AUSTRALIAN_JURISDICTIONS = [
+  'High Court of Australia',
+  'Federal Court of Australia',
+  'Family Court of Australia',
+  'NSW Supreme Court',
+  'VIC Supreme Court',
+  'QLD Supreme Court',
+  'SA Supreme Court',
+  'WA Supreme Court',
+  'TAS Supreme Court',
+  'NT Supreme Court',
+  'ACT Supreme Court',
+  'NSW District Court',
+  'VIC County Court',
+  'QLD District Court',
+  'SA District Court',
+  'WA District Court',
+  'NSW Local Court',
+  'VIC Magistrates Court',
+  'QLD Magistrates Court',
+  'Other'
+]
+
+export function CourtAppearancesSection({
+  value,
+  onChange
+}: CourtAppearancesSectionProps) {
+  const handleAddAnother = () => {
+    const newAppearance: CourtAppearance = {
+      id: `temp-${Date.now()}`,
+      courtName: '',
+      jurisdiction: '',
+      appearanceCount: 0
+    }
+    onChange([...value, newAppearance])
+  }
+
+  const handleRemoveAppearance = (index: number) => {
+    onChange(value.filter((_, i) => i !== index))
+  }
+
+  const handleUpdateAppearance = (index: number, field: keyof CourtAppearance, fieldValue: any) => {
+    onChange(value.map((app, i) =>
+      i === index ? { ...app, [field]: fieldValue } : app
+    ))
+  }
+
+  // Start with at least one entry
+  if (value.length === 0) {
+    onChange([{
+      id: `temp-${Date.now()}`,
+      courtName: '',
+      jurisdiction: '',
+      appearanceCount: 0
+    }])
+  }
+
+  return (
+    <Card>
+      <CardHeader className="space-y-2">
+        <CardTitle className="flex items-center gap-3 mb-4 text-xl md:text-2xl">
+          <Gavel className="w-6 h-6 text-blue-600" />
+          Court Appearances & Jurisdictions
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {/* Court Appearance Entries */}
+        <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100">
+          {value.map((app, index) => (
+            <div key={app.id || index} className="border border-slate-200 rounded-lg p-3">
+              <div className="flex items-center gap-3">
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div>
+                    <Label htmlFor={`court-${index}`} className="text-xs mb-2 ml-2">Court Name *</Label>
+                    <Input
+                      id={`court-${index}`}
+                      value={app.courtName}
+                      onChange={(e) => handleUpdateAppearance(index, 'courtName', e.target.value)}
+                      placeholder="e.g., Sydney District Court"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor={`jurisdiction-${index}`} className="text-xs mb-2 ml-2">Jurisdiction *</Label>
+                    <Select
+                      value={app.jurisdiction}
+                      onValueChange={(value) => handleUpdateAppearance(index, 'jurisdiction', value)}
+                    >
+                      <SelectTrigger id={`jurisdiction-${index}`}>
+                        <SelectValue placeholder="Select jurisdiction" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {AUSTRALIAN_JURISDICTIONS.map((jur) => (
+                          <SelectItem key={jur} value={jur}>
+                            {jur}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor={`count-${index}`} className="text-xs mb-2 ml-2">Appearances *</Label>
+                    <Input
+                      id={`count-${index}`}
+                      type="number"
+                      min="0"
+                      value={app.appearanceCount}
+                      onChange={(e) => handleUpdateAppearance(index, 'appearanceCount', parseInt(e.target.value) || 0)}
+                      placeholder="Number"
+                    />
+                  </div>
+                </div>
+                {value.length > 1 && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleRemoveAppearance(index)}
+                    className="mt-5 text-red-500 hover:text-red-700 hover:bg-red-50"
+                  >
+                    <X className="w-5 h-5" />
+                  </Button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add Another Button */}
+        <Button
+          type="button"
+          variant="outline"
+          onClick={handleAddAnother}
+          className="w-full md:w-auto text-sm md:text-base"
+        >
+          <Plus className="w-4 h-4 mr-2" />
+          Add Another Court Appearance
+        </Button>
+      </CardContent>
+    </Card>
+  )
+}

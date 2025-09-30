@@ -1,0 +1,487 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Users & Authentication
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  password      String?
+  name          String?
+  image         String?
+  role          Role      @default(CLIENT)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  lawyer        Lawyer?
+  firmOwner     LawFirm?
+  reviews       Review[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+  subscriptions Subscription[]
+}
+
+enum Role {
+  ADMIN
+  FIRM_OWNER
+  LAWYER
+  LAWYER_FIRM_OWNER
+  CLIENT
+}
+
+// Law Firms
+model LawFirm {
+  id             String        @id @default(cuid())
+  ownerId        String        @unique
+  name           String
+  description    String?       @db.Text
+  website        String?
+  email          String
+  phone          String
+  displayPhone   Boolean       @default(false)
+  displayEmail   Boolean       @default(false)
+  slug           String?       @unique
+  logoUrl        String?
+  galleryImages  Json?
+  operatingHours Json?
+  status         ProfileStatus @default(DRAFT)
+  isPaidUser     Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  owner            User                 @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  lawyers          Lawyer[]
+  locations        FirmLocation[]
+  practiceAreas    FirmPracticeArea[]
+  courtAppearances FirmCourtAppearance[]
+  languages        FirmLanguage[]
+  reviews          Review[]
+  invitations      FirmInvitation[]
+  pendingChanges   PendingChange[]
+  subscriptions    Subscription[]
+  boosts           Boost[]
+  profileViews     ProfileView[]
+}
+
+model FirmLocation {
+  id        String  @id @default(cuid())
+  firmId    String
+  address   String
+  city      String
+  state     String
+  postcode  String
+  country   String  @default("Australia")
+  isPrimary Boolean @default(false)
+  latitude  Float?
+  longitude Float?
+
+  firm LawFirm @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+// Lawyers
+model Lawyer {
+  id              String        @id @default(cuid())
+  userId          String        @unique
+  firmId          String?
+  firstName       String
+  lastName        String
+  bio             String?       @db.Text
+  slug            String?       @unique
+  photoUrl        String?
+  position        String?
+  yearsExperience String?
+  phone           String?
+  email           String?
+  displayPhone    Boolean       @default(false)
+  displayEmail    Boolean       @default(false)
+  address         String?
+  city            String?
+  state           String?
+  postcode        String?
+  country         String?       @default("Australia")
+  latitude        Float?
+  longitude       Float?
+  linkedinUrl     String?
+  twitterUrl      String?
+  facebookUrl     String?
+  websiteUrl      String?
+  operatingHours  Json?
+  status          ProfileStatus @default(DRAFT)
+  claimedAt       DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  user                User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firm                LawFirm?               @relation(fields: [firmId], references: [id], onDelete: SetNull)
+  specialisations     LawyerSpecialisation[]
+  courtAppearances    CourtAppearance[]
+  languages           LawyerLanguage[]
+  certifications      Certification[]
+  reviews             Review[]
+  invitations         FirmInvitation[]
+  joinRequests        LawyerRequest[]
+  relationshipHistory RelationshipHistory[]
+  pendingChanges      PendingChange[]
+  subscriptions       Subscription[]
+  boosts              Boost[]
+  profileViews        ProfileView[]
+}
+
+enum ProfileStatus {
+  DRAFT
+  PENDING
+  PUBLISHED
+  SUSPENDED
+}
+
+// Specialisations
+model Specialisation {
+  id          String  @id @default(cuid())
+  name        String
+  parentId    String?
+  category    String
+  icon        String?
+  description String?
+
+  parent   Specialisation?        @relation("SpecialisationHierarchy", fields: [parentId], references: [id])
+  children Specialisation[]       @relation("SpecialisationHierarchy")
+  lawyers  LawyerSpecialisation[]
+  firms    FirmPracticeArea[]
+}
+
+model LawyerSpecialisation {
+  id                 String  @id @default(cuid())
+  lawyerId           String
+  specialisationId   String
+  yearsExperience    String?
+  certificationLevel String?
+  description        String? @db.Text
+
+  lawyer         Lawyer         @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  specialisation Specialisation @relation(fields: [specialisationId], references: [id])
+
+  @@unique([lawyerId, specialisationId])
+}
+
+model FirmPracticeArea {
+  id               String @id @default(cuid())
+  firmId           String
+  specialisationId String
+
+  firm           LawFirm        @relation(fields: [firmId], references: [id], onDelete: Cascade)
+  specialisation Specialisation @relation(fields: [specialisationId], references: [id])
+
+  @@unique([firmId, specialisationId])
+}
+
+model FirmCourtAppearance {
+  id              String @id @default(cuid())
+  firmId          String
+  courtName       String
+  jurisdiction    String
+  appearanceCount String
+
+  firm LawFirm @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+model FirmLanguage {
+  id               String @id @default(cuid())
+  firmId           String
+  languageName     String
+  proficiencyLevel String
+
+  firm LawFirm @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+// Court & Professional Info
+model CourtAppearance {
+  id              String @id @default(cuid())
+  lawyerId        String
+  courtName       String
+  jurisdiction    String
+  appearanceCount Int    @default(0)
+
+  lawyer Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+model LawyerLanguage {
+  id               String @id @default(cuid())
+  lawyerId         String
+  languageName     String
+  proficiencyLevel String
+
+  lawyer Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+model Certification {
+  id          String    @id @default(cuid())
+  lawyerId    String
+  name        String
+  issuingBody String
+  dateEarned  DateTime
+  expiryDate  DateTime?
+
+  lawyer Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+// Reviews
+model Review {
+  id                  String       @id @default(cuid())
+  authorId            String
+  targetType          TargetType
+  lawyerId            String?
+  firmId              String?
+  communicationRating Int
+  expertiseRating     Int
+  valueRating         Int
+  outcomeRating       Int?
+  overallRating       Float
+  comment             String       @db.Text
+  caseReference       String?
+  caseType            String?
+  serviceDate         DateTime?
+  status              ReviewStatus @default(PENDING)
+  adminNotes          String?
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  author   User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  lawyer   Lawyer?         @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  firm     LawFirm?        @relation(fields: [firmId], references: [id], onDelete: Cascade)
+  response ReviewResponse?
+}
+
+enum TargetType {
+  LAWYER
+  FIRM
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  FLAGGED
+}
+
+model ReviewResponse {
+  id           String   @id @default(cuid())
+  reviewId     String   @unique
+  responderId  String
+  responseText String   @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  review Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+}
+
+// Firm-Lawyer Relationships
+model FirmInvitation {
+  id        String           @id @default(cuid())
+  firmId    String
+  lawyerId  String
+  invitedBy String
+  status    InvitationStatus @default(PENDING)
+  token     String           @unique
+  expiresAt DateTime
+  createdAt DateTime         @default(now())
+
+  firm   LawFirm @relation(fields: [firmId], references: [id], onDelete: Cascade)
+  lawyer Lawyer  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+model LawyerRequest {
+  id        String           @id @default(cuid())
+  lawyerId  String
+  firmId    String
+  message   String?
+  status    InvitationStatus @default(PENDING)
+  createdAt DateTime         @default(now())
+
+  lawyer Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+model RelationshipHistory {
+  id        String    @id @default(cuid())
+  lawyerId  String
+  firmId    String
+  role      String?
+  startDate DateTime
+  endDate   DateTime?
+
+  lawyer Lawyer @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+}
+
+// Approval Workflow
+model PendingChange {
+  id          String       @id @default(cuid())
+  entityType  EntityType
+  lawyerId    String?
+  firmId      String?
+  changesJson Json
+  status      ChangeStatus @default(PENDING)
+  adminNotes  String?
+  createdAt   DateTime     @default(now())
+  processedAt DateTime?
+
+  lawyer Lawyer?  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  firm   LawFirm? @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+enum EntityType {
+  LAWYER
+  FIRM
+  REVIEW
+}
+
+enum ChangeStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// Payments & Subscriptions
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String
+  lawyerId             String?
+  firmId               String?
+  planType             PlanType
+  stripeSubscriptionId String?            @unique
+  stripeCustomerId     String?
+  status               SubscriptionStatus
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean            @default(false)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lawyer Lawyer?  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  firm   LawFirm? @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+enum PlanType {
+  FREE
+  PROFESSIONAL
+  PREMIUM
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+  TRIALING
+}
+
+model Boost {
+  id              String     @id @default(cuid())
+  profileType     TargetType
+  lawyerId        String?
+  firmId          String?
+  boostType       BoostType
+  startDate       DateTime
+  endDate         DateTime
+  amountPaid      Int
+  stripePaymentId String?
+  createdAt       DateTime   @default(now())
+
+  lawyer Lawyer?  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  firm   LawFirm? @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+enum BoostType {
+  FEATURED_HOMEPAGE
+  PRIORITY_SEARCH
+  CATEGORY_SPOTLIGHT
+}
+
+// Analytics
+model ProfileView {
+  id          String     @id @default(cuid())
+  profileType TargetType
+  lawyerId    String?
+  firmId      String?
+  viewerId    String?
+  source      String?
+  viewedAt    DateTime   @default(now())
+
+  lawyer Lawyer?  @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
+  firm   LawFirm? @relation(fields: [firmId], references: [id], onDelete: Cascade)
+}
+
+// Notifications
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Audit Logs
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Contact Inquiries
+model ContactInquiry {
+  id               String        @id @default(cuid())
+  firstName        String
+  lastName         String
+  email            String
+  phone            String?
+  caseType         String
+  urgency          String
+  message          String        @db.Text
+  preferredContact String
+  recipientType    TargetType
+  recipientId      String
+  recipientName    String
+  firmName         String?
+  status           InquiryStatus @default(NEW)
+  adminNotes       String?       @db.Text
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([recipientType, recipientId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+enum InquiryStatus {
+  NEW
+  READ
+  RESPONDED
+  CLOSED
+  SPAM
+}
