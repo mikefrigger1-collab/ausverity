@@ -378,7 +378,7 @@ export default function LawyerProfileForm({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="firstName" class="mb-2 ml-2">
+              <Label htmlFor="firstName" className="mb-2 ml-2">
                 First Name <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -391,7 +391,7 @@ export default function LawyerProfileForm({
               />
             </div>
             <div>
-              <Label htmlFor="lastName" class="mb-2 ml-2">
+              <Label htmlFor="lastName" className="mb-2 ml-2">
                 Last Name <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -406,7 +406,7 @@ export default function LawyerProfileForm({
           </div>
 
           <div>
-            <Label htmlFor="position" class="mb-2 ml-2">Position / Title</Label>
+            <Label htmlFor="position" className="mb-2 ml-2">Position / Title</Label>
             <Input
               id="position"
               name="position"
@@ -417,7 +417,7 @@ export default function LawyerProfileForm({
           </div>
 
           <div>
-            <Label htmlFor="yearsExperience" class="mb-2 ml-2">Years of Experience</Label>
+            <Label htmlFor="yearsExperience" className="mb-2 ml-2">Years of Experience</Label>
             <Input
               id="yearsExperience"
               name="yearsExperience"
