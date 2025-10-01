@@ -67,7 +67,9 @@ export async function POST(request: NextRequest) {
     })
     
     // Send email notification to the recipient
-    await sendEmailNotification(validatedData, recipientCheck.recipientEmail)
+    if (recipientCheck.recipientEmail) {
+      await sendEmailNotification(validatedData, recipientCheck.recipientEmail)
+    }
     
     // Send confirmation email to the client
     await sendClientConfirmation(validatedData)
