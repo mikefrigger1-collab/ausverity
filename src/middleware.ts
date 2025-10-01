@@ -1,12 +1,35 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { auth } from "@/lib/auth"
 
 export default async function middleware(request: NextRequest) {
-  // Middleware temporarily allows all requests through
-  // Auth checks are handled at the page level using server components
-  // This is necessary because Edge Runtime (used by Vercel middleware) doesn't support Prisma/bcrypt
-  return NextResponse.next()
-}
+  const { pathname } = request.nextUrl
+
+  console.log('🔍 Middleware checking:', pathname)
+
+  // Allow public routes that don't need auth
+  const publicRoutes = ['/', '/search', '/login', '/register', '/forgot-password', '/submit-review']
+  if (publicRoutes.includes(pathname)) {
+    console.log('✅ Public route - allowing:', pathname)
+    return NextResponse.next()
+  }
+
+  // Allow public profile routes FIRST - before any other checks
+  const publicProfilePattern = /^\/(lawyer|firm)\/[a-z0-9-]+$/i
+  if (publicProfilePattern.test(pathname)) {
+    console.log('✅ Public profile route - allowing:', pathname)
+    return NextResponse.next()
+  }
+
+  // Get session only for protected routes
+  let session
+  try {
+    session = await auth()
+  } catch (error) {
+    console.error('❌ Auth error in middleware:', error)
+    // If auth fails completely, allow the request to continue for public routes
+    return NextResponse.next()
+  }
 
   // Admin routes - only ADMIN role
   if (pathname.startsWith('/admin')) {
