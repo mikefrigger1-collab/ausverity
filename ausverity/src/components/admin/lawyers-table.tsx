@@ -41,7 +41,7 @@ interface LawyerData {
   photoUrl: string | null
   status: string
   isPaidUser: boolean
-  yearsExperience: number | null
+  yearsExperience: string | null
   createdAt: Date
   firm: {
     name: string
