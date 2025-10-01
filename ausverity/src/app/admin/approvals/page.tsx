@@ -131,16 +131,12 @@ export default async function ApprovalsPage() {
                         : 'bg-purple-50'
                     }`}>
                       {change.entityType === 'LAWYER' ? (
-                        <User className={`h-5 w-5 ${
-                          change.entityType === 'LAWYER' 
-                            ? 'text-blue-600' 
-                            : 'text-purple-600'
-                        }`} />
+                        <User className="h-5 w-5 text-blue-600" />
                       ) : (
                         <Building2 className={`h-5 w-5 ${
-                          change.entityType === 'LAWYER' 
-                            ? 'text-blue-600' 
-                            : 'text-purple-600'
+                          change.entityType === 'FIRM'
+                            ? 'text-purple-600'
+                            : 'text-orange-600'
                         }`} />
                       )}
                     </div>
