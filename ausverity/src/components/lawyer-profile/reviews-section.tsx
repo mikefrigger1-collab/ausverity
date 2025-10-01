@@ -15,13 +15,13 @@ import { Star, Loader2, SlidersHorizontal } from "lucide-react"
 import { getMoreReviews } from "@/lib/actions/lawyer-actions"
 import type { LawyerProfileData } from "@/lib/data/lawyers"
 
-type Review = LawyerProfileData['reviews'][0]
+type Review = NonNullable<LawyerProfileData>['reviews'][0]
 
 interface ReviewsSectionProps {
   lawyerId: string
   initialReviews: Review[]
   totalReviews: number
-  ratingBreakdown: LawyerProfileData['ratingBreakdown']
+  ratingBreakdown: NonNullable<LawyerProfileData>['ratingBreakdown']
   lawyerFirstName: string
 }
 

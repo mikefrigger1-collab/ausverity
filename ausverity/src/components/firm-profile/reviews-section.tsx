@@ -8,13 +8,13 @@ import { Star, Loader2 } from "lucide-react"
 import { getMoreReviews } from "@/lib/actions/firm-actions"
 import type { FirmProfileData } from "@/lib/data/firms"
 
-type Review = FirmProfileData['reviews'][0]
+type Review = NonNullable<FirmProfileData>['reviews'][0]
 
 interface ReviewsSectionProps {
   firmId: string
   initialReviews: Review[]
   totalReviews: number
-  ratingBreakdown: FirmProfileData['ratingBreakdown']
+  ratingBreakdown: NonNullable<FirmProfileData>['ratingBreakdown']
   firmName: string
 }
 
