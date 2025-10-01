@@ -37,7 +37,6 @@ export function MobileActionBar({ lawyer }: MobileActionBarProps) {
               recipientName={fullName}
               recipientId={lawyer.id}
               firmName={lawyer.firm?.name}
-              isPaidUser={lawyer.isPaidUser}
               trigger={
                 <Button
                   size="lg"

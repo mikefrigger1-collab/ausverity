@@ -243,7 +243,6 @@ export function Sidebar({ lawyer }: SidebarProps) {
               recipientName={fullName}
               recipientId={lawyer.id}
               firmName={lawyer.firm?.name}
-              isPaidUser={lawyer.isPaidUser}
               trigger={
                 <Button className="w-full bg-blue-600 hover:bg-blue-700">
                   Send Message

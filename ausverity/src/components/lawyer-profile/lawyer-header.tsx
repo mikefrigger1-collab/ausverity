@@ -122,7 +122,6 @@ export function LawyerHeader({ lawyer }: LawyerHeaderProps) {
                   recipientName={fullName}
                   recipientId={lawyer.id}
                   firmName={lawyer.firm?.name}
-                  isPaidUser={lawyer.isPaidUser}
                   trigger={
                     <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700">
                       Contact Lawyer
