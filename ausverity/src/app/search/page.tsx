@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
@@ -84,7 +84,7 @@ const states = [
   "NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"
 ]
 
-export default function SearchPage() {
+function SearchPageContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   
@@ -581,5 +581,19 @@ export default function SearchPage() {
         </div>
       </div>
     </SiteLayout>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <SiteLayout>
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+        </div>
+      </SiteLayout>
+    }>
+      <SearchPageContent />
+    </Suspense>
   )
 }
