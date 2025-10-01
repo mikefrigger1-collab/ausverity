@@ -27,9 +27,9 @@ export async function GET(request: NextRequest) {
 
     // Search lawyers if type is 'all' or 'lawyer'
     if (type === 'all' || type === 'lawyer') {
+      const andConditions: Prisma.LawyerWhereInput[] = []
       const lawyerWhere: Prisma.LawyerWhereInput = {
-        status: 'PUBLISHED',
-        AND: []
+        status: 'PUBLISHED'
       }
 
       // Text search (name)
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
 
       // Location filters
       if (location) {
-        lawyerWhere.AND!.push({
+        andConditions.push({
           OR: [
             { city: { contains: location, mode: 'insensitive' } },
             { state: { contains: location, mode: 'insensitive' } },
@@ -76,6 +76,11 @@ export async function GET(request: NextRequest) {
             }
           }
         }
+      }
+
+      // Add AND conditions if any exist
+      if (andConditions.length > 0) {
+        lawyerWhere.AND = andConditions
       }
 
       const lawyersData = await db.lawyer.findMany({
@@ -159,8 +164,7 @@ export async function GET(request: NextRequest) {
     // Search firms if type is 'all' or 'firm'
     if (type === 'all' || type === 'firm') {
       const firmWhere: Prisma.LawFirmWhereInput = {
-        status: 'PUBLISHED',
-        AND: []
+        status: 'PUBLISHED'
       }
 
       // Text search (name)
