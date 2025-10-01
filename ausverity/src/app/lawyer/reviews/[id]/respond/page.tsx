@@ -14,12 +14,13 @@ import Link from 'next/link'
 import ReviewResponseForm from '@/components/lawyer/ReviewResponseForm'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function ReviewRespondPage({ params }: PageProps) {
+  const { id } = await params
   const session = await auth()
 
   if (!session?.user) {
@@ -29,7 +30,7 @@ export default async function ReviewRespondPage({ params }: PageProps) {
   // Fetch the review
   const review = await db.review.findUnique({
     where: {
-      id: params.id
+      id
     },
     include: {
       author: true,
