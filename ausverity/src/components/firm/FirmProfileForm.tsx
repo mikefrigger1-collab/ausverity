@@ -32,12 +32,13 @@ interface LawFirm {
   displayPhone: boolean
   displayEmail: boolean
   logoUrl: string | null
-  galleryImages: string[] | null
+  galleryImages: any
   operatingHours: any
   locations?: any[]
   practiceAreas?: any[]
   courtAppearances?: any[]
   languages?: any[]
+  isPaidUser?: boolean
 }
 
 interface Specialisation {
