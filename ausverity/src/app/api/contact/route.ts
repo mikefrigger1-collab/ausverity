@@ -14,7 +14,7 @@ const contactFormSchema = z.object({
   preferredContact: z.string().min(1, "Please select preferred contact method"),
   consent: z.boolean().refine(val => val === true, "You must agree to be contacted"),
   // Additional fields from the form component
-  recipientType: z.enum(['lawyer', 'firm']),
+  recipientType: z.enum(['LAWYER', 'FIRM']),
   recipientId: z.string().min(1, "Recipient ID is required"),
   recipientName: z.string().min(1, "Recipient name is required"),
   firmName: z.string().optional(),
@@ -110,9 +110,9 @@ export async function POST(request: NextRequest) {
 }
 
 // Helper function to check if recipient exists and is a paid user
-async function checkRecipientEligibility(recipientType: 'lawyer' | 'firm', recipientId: string) {
+async function checkRecipientEligibility(recipientType: 'LAWYER' | 'FIRM', recipientId: string) {
   try {
-    if (recipientType === 'lawyer') {
+    if (recipientType === 'LAWYER') {
       const lawyer = await db.lawyer.findUnique({
         where: { 
           id: recipientId,

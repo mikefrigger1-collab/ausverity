@@ -33,7 +33,7 @@ export function MobileActionBar({ lawyer }: MobileActionBarProps) {
 
           {lawyer.isPaidUser ? (
             <ContactForm
-              recipientType="lawyer"
+              recipientType="LAWYER"
               recipientName={fullName}
               recipientId={lawyer.id}
               firmName={lawyer.firm?.name}

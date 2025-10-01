@@ -239,7 +239,7 @@ export function Sidebar({ lawyer }: SidebarProps) {
           </p>
           {lawyer.isPaidUser ? (
             <ContactForm
-              recipientType="lawyer"
+              recipientType="LAWYER"
               recipientName={fullName}
               recipientId={lawyer.id}
               firmName={lawyer.firm?.name}
@@ -252,7 +252,7 @@ export function Sidebar({ lawyer }: SidebarProps) {
             />
           ) : (
             <ContactUpgradePrompt
-              recipientType="lawyer"
+              recipientType="LAWYER"
               recipientName={fullName}
               recipientId={lawyer.id}
               trigger={

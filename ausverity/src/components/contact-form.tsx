@@ -75,7 +75,7 @@ const caseTypes = [
 ]
 
 interface ContactFormProps {
-  recipientType: 'lawyer' | 'firm'
+  recipientType: 'LAWYER' | 'FIRM'
   recipientName: string
   recipientId: string
   firmName?: string
@@ -153,7 +153,7 @@ export function ContactForm({
   const defaultTrigger = (
     <Button className="w-full bg-blue-600 hover:bg-blue-700">
       <MessageSquare className="w-4 h-4 mr-2" />
-      Contact {recipientType === 'lawyer' ? recipientName.split(' ')[0] : 'Firm'}
+      Contact {recipientType === 'LAWYER' ? recipientName.split(' ')[0] : 'Firm'}
     </Button>
   )
 
@@ -169,7 +169,7 @@ export function ContactForm({
             Contact {recipientName}
           </DialogTitle>
           <DialogDescription>
-            {recipientType === 'lawyer' && firmName && (
+            {recipientType === 'LAWYER' && firmName && (
               <span className="text-slate-600">{firmName}</span>
             )}
           </DialogDescription>

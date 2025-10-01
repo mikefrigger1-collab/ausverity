@@ -23,7 +23,7 @@ import {
 } from "lucide-react"
 
 interface ContactUpgradePromptProps {
-  recipientType: 'lawyer' | 'firm'
+  recipientType: 'LAWYER' | 'FIRM'
   recipientName: string
   recipientId: string
   trigger?: React.ReactNode
@@ -38,7 +38,7 @@ export function ContactUpgradePrompt({
   const defaultTrigger = (
     <Button variant="outline" className="w-full border-amber-200 text-amber-700 hover:bg-amber-50">
       <Crown className="w-4 h-4 mr-2" />
-      Contact {recipientType === 'lawyer' ? recipientName.split(' ')[0] : 'Firm'}
+      Contact {recipientType === 'LAWYER' ? recipientName.split(' ')[0] : 'Firm'}
     </Button>
   )
 
@@ -78,7 +78,7 @@ export function ContactUpgradePrompt({
           </Card>
 
           {/* Benefits for the Professional */}
-          {recipientType === 'lawyer' && (
+          {recipientType === 'LAWYER' && (
             <Card className="bg-blue-50 border-blue-200">
               <CardContent className="pt-6">
                 <div className="text-center">

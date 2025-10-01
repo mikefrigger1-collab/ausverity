@@ -118,7 +118,7 @@ export function LawyerHeader({ lawyer }: LawyerHeaderProps) {
             <div className="w-1/2 lg:w-full">
               {lawyer.isPaidUser ? (
                 <ContactForm
-                  recipientType="lawyer"
+                  recipientType="LAWYER"
                   recipientName={fullName}
                   recipientId={lawyer.id}
                   firmName={lawyer.firm?.name}
@@ -131,7 +131,7 @@ export function LawyerHeader({ lawyer }: LawyerHeaderProps) {
                 />
               ) : (
                 <ContactUpgradePrompt
-                  recipientType="lawyer"
+                  recipientType="LAWYER"
                   recipientName={fullName}
                   recipientId={lawyer.id}
                   trigger={
