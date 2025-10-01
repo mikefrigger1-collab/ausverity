@@ -14,9 +14,9 @@ import Link from 'next/link'
 import FirmReviewResponseForm from '@/components/firm/FirmReviewResponseForm'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function FirmReviewRespondPage({ params }: PageProps) {
@@ -26,10 +26,12 @@ export default async function FirmReviewRespondPage({ params }: PageProps) {
     redirect('/login')
   }
 
+  const { id } = await params
+
   // Fetch the review
   const review = await db.review.findUnique({
     where: {
-      id: params.id
+      id
     },
     include: {
       author: true,
