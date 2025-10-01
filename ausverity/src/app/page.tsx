@@ -24,9 +24,6 @@ import {
 } from "lucide-react"
 import { db } from "@/lib/db"
 
-// Force dynamic rendering to prevent build-time database issues
-export const dynamic = 'force-dynamic'
-
 // Get platform statistics
 async function getStats() {
   // Return default stats if DATABASE_URL is not configured
