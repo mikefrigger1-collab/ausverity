@@ -50,7 +50,7 @@ interface LawyerData {
     reviews: number
   }
   avgRating: number
-  slug: string
+  slug: string | null
 }
 
 interface LawyersTableProps {
@@ -234,11 +234,13 @@ export function LawyersTable({ lawyers }: LawyersTableProps) {
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <Button asChild variant="ghost" size="sm">
-                          <Link href={`/lawyer/${lawyer.slug}`} target="_blank">
-                            <Eye className="h-4 w-4" />
-                          </Link>
-                        </Button>
+                        {lawyer.slug && (
+                          <Button asChild variant="ghost" size="sm">
+                            <Link href={`/lawyer/${lawyer.slug}`} target="_blank">
+                              <Eye className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                        )}
                         <Button asChild variant="ghost" size="sm">
                           <Link href={`/admin/lawyers/${lawyer.id}`}>
                             <Edit className="h-4 w-4" />
