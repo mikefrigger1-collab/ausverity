@@ -457,8 +457,6 @@ export default function FirmProfileForm({
             <ImageUploadCrop
               currentImageUrl=""
               onImageUploaded={handleAddGalleryImage}
-              buttonText="Add Gallery Image"
-              buttonVariant="outline"
             />
           )}
 
