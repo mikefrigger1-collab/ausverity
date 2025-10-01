@@ -19,7 +19,10 @@ const reviewSchema = z.object({
   serviceDate: z.string().nullable(),
 })
 
-type ReviewSubmission = z.infer<typeof reviewSchema>
+type ReviewSubmission = z.infer<typeof reviewSchema> & {
+  targetName?: string
+  targetUserId?: string | null
+}
 
 export async function POST(request: NextRequest) {
   try {
