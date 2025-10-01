@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import {
+import { 
   ArrowLeft,
   Star,
   AlertCircle
@@ -14,13 +14,12 @@ import Link from 'next/link'
 import FirmReviewResponseForm from '@/components/firm/FirmReviewResponseForm'
 
 interface PageProps {
-  params: Promise<{
+  params: {
     id: string
-  }>
+  }
 }
 
 export default async function FirmReviewRespondPage({ params }: PageProps) {
-  const { id } = await params
   const session = await auth()
 
   if (!session?.user) {
@@ -30,7 +29,7 @@ export default async function FirmReviewRespondPage({ params }: PageProps) {
   // Fetch the review
   const review = await db.review.findUnique({
     where: {
-      id
+      id: params.id
     },
     include: {
       author: true,
@@ -173,7 +172,7 @@ export default async function FirmReviewRespondPage({ params }: PageProps) {
           {/* Review Details */}
           <div>
             <p className="text-sm text-slate-600 mb-1">
-              By {review.author.name || 'Anonymous'} " {new Date(review.createdAt).toLocaleDateString('en-AU', {
+              By {review.author.name || 'Anonymous'} • {new Date(review.createdAt).toLocaleDateString('en-AU', {
                 dateStyle: 'long'
               })}
             </p>

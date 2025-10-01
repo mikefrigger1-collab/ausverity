@@ -125,7 +125,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] bg-[size:32px_32px]" />
         
         <div className="relative container mx-auto px-4 py-20 lg:py-28">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             {/* Badge */}
             <div className="mb-8 inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 border border-blue-200">
               <Sparkles className="mr-2 h-4 w-4" />
@@ -134,16 +134,12 @@ export default async function HomePage() {
 
             {/* Headline */}
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
-              Find Your Perfect{" "}
-              <span className="text-blue-600">
-                Legal Match
-              </span>
+              Connect with Your Ideal Lawyer
             </h1>
 
             {/* Subheadline */}
             <p className="mb-10 text-xl text-slate-600 sm:text-2xl lg:leading-8">
-              Connect with verified Australian lawyers through intelligent matching, 
-              authentic reviews, and transparent pricing.
+              Discover Australian lawyers who fit your needs. 
             </p>
 
             {/* Search Interface */}
