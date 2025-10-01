@@ -37,6 +37,13 @@ export default async function FirmDashboardPage() {
         where: {
           status: 'APPROVED'
         },
+        include: {
+          author: {
+            select: {
+              name: true
+            }
+          }
+        },
         orderBy: {
           createdAt: 'desc'
         },
