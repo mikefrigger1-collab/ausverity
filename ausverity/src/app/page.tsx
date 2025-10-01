@@ -4,14 +4,14 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SiteLayout } from "@/components/site-layout"
-import { 
-  Search, 
-  Star, 
-  Users, 
-  Shield, 
-  MapPin, 
-  Clock, 
-  CheckCircle, 
+import {
+  Search,
+  Star,
+  Users,
+  Shield,
+  MapPin,
+  Clock,
+  CheckCircle,
   ArrowRight,
   Zap,
   Award,
@@ -24,8 +24,17 @@ import {
 } from "lucide-react"
 import { db } from "@/lib/db"
 
+// Force dynamic rendering to prevent build-time database issues
+export const dynamic = 'force-dynamic'
+
 // Get platform statistics
 async function getStats() {
+  // Return default stats if DATABASE_URL is not configured
+  if (!process.env.DATABASE_URL) {
+    console.warn('DATABASE_URL not configured, using default stats')
+    return { lawyers: 1247, firms: 389, reviews: 8429, avgRating: 4.8 }
+  }
+
   try {
     const [lawyerCount, firmCount, reviewCount, avgRating] = await Promise.all([
       db.lawyer.count({ where: { status: 'PUBLISHED' } }),

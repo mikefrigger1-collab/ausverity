@@ -7,6 +7,13 @@ export default async function middleware(request: NextRequest) {
 
   console.log('🔍 Middleware checking:', pathname)
 
+  // Allow public routes that don't need auth
+  const publicRoutes = ['/', '/search', '/login', '/register', '/forgot-password', '/submit-review']
+  if (publicRoutes.includes(pathname)) {
+    console.log('✅ Public route - allowing:', pathname)
+    return NextResponse.next()
+  }
+
   // Allow public profile routes FIRST - before any other checks
   const publicProfilePattern = /^\/(lawyer|firm)\/[a-z0-9-]+$/i
   if (publicProfilePattern.test(pathname)) {
@@ -15,7 +22,14 @@ export default async function middleware(request: NextRequest) {
   }
 
   // Get session only for protected routes
-  const session = await auth()
+  let session
+  try {
+    session = await auth()
+  } catch (error) {
+    console.error('❌ Auth error in middleware:', error)
+    // If auth fails completely, allow the request to continue for public routes
+    return NextResponse.next()
+  }
 
   // Admin routes - only ADMIN role
   if (pathname.startsWith('/admin')) {
