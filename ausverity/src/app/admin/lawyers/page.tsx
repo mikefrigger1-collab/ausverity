@@ -21,6 +21,14 @@ export default async function AdminLawyersPage() {
           name: true
         }
       },
+      subscriptions: {
+        where: {
+          status: 'ACTIVE'
+        },
+        select: {
+          planType: true
+        }
+      },
       _count: {
         select: {
           reviews: true
@@ -42,9 +50,12 @@ export default async function AdminLawyersPage() {
         }
       })
 
+      const { subscriptions, ...lawyerData } = lawyer
+
       return {
-        ...lawyer,
-        avgRating: avgRatingResult._avg.overallRating || 0
+        ...lawyerData,
+        avgRating: avgRatingResult._avg.overallRating || 0,
+        isPaidUser: subscriptions.some(sub => sub.planType !== 'FREE')
       }
     })
   )
