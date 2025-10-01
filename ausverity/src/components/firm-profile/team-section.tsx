@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Star } from "lucide-react"
 import type { FirmProfileData } from "@/lib/data/firms"
 
-type Lawyer = FirmProfileData['lawyers'][0]
+type Lawyer = NonNullable<FirmProfileData>['lawyers'][0]
 
 interface TeamSectionProps {
   lawyers: Lawyer[]

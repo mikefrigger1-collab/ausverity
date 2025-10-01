@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Scale } from "lucide-react"
 import type { LawyerProfileData } from "@/lib/data/lawyers"
 
-type Specialisation = LawyerProfileData['specialisations'][0]
+type Specialisation = NonNullable<LawyerProfileData>['specialisations'][0]
 
 interface SpecialisationsSectionProps {
   specialisations: Specialisation[]
