@@ -33,6 +33,7 @@ import {
   Crown,
   Users
 } from 'lucide-react'
+import { getLawyerUrl } from '@/lib/utils/url-helpers'
 
 interface LawyerData {
   id: string
@@ -51,6 +52,7 @@ interface LawyerData {
   }
   avgRating: number
   slug: string | null
+  state: string | null
 }
 
 interface LawyersTableProps {
@@ -234,9 +236,9 @@ export function LawyersTable({ lawyers }: LawyersTableProps) {
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
-                        {lawyer.slug && (
+                        {lawyer.slug && lawyer.state && (
                           <Button asChild variant="ghost" size="sm">
-                            <Link href={`/lawyer/${lawyer.slug}`} target="_blank">
+                            <Link href={getLawyerUrl({ slug: lawyer.slug, state: lawyer.state }) || `/lawyer/${lawyer.slug}`} target="_blank">
                               <Eye className="h-4 w-4" />
                             </Link>
                           </Button>

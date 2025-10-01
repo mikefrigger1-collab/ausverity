@@ -1,16 +1,89 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { auth } from "@/lib/auth"
+import { db } from "@/lib/db"
+import { normalizeStateCode } from "@/lib/constants/states"
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   console.log('🔍 Middleware checking:', pathname)
 
+  // Redirect old /lawyer/[slug] URLs to new /[state]/lawyer/[slug] format
+  const oldLawyerPattern = /^\/lawyer\/([a-z0-9-]+)$/i
+  const oldLawyerMatch = pathname.match(oldLawyerPattern)
+  if (oldLawyerMatch) {
+    const slug = oldLawyerMatch[1]
+    console.log('🔄 Old lawyer URL detected, looking up state:', slug)
+
+    try {
+      const lawyer = await db.lawyer.findUnique({
+        where: { slug, status: 'PUBLISHED' },
+        select: { state: true }
+      })
+
+      if (lawyer?.state) {
+        const stateCode = normalizeStateCode(lawyer.state)
+        if (stateCode) {
+          const newUrl = `/${stateCode}/lawyer/${slug}`
+          console.log('🔄 Redirecting to:', newUrl)
+          return NextResponse.redirect(new URL(newUrl, request.url), 301)
+        }
+      }
+    } catch (error) {
+      console.error('❌ Error looking up lawyer for redirect:', error)
+    }
+  }
+
+  // Redirect old /firm/[slug] URLs to new /[state]/firm/[slug] format
+  const oldFirmPattern = /^\/firm\/([a-z0-9-]+)$/i
+  const oldFirmMatch = pathname.match(oldFirmPattern)
+  if (oldFirmMatch) {
+    const slug = oldFirmMatch[1]
+    console.log('🔄 Old firm URL detected, looking up state:', slug)
+
+    try {
+      const firm = await db.lawFirm.findUnique({
+        where: { slug, status: 'PUBLISHED' },
+        include: {
+          locations: {
+            where: { isPrimary: true },
+            take: 1
+          }
+        }
+      })
+
+      if (firm?.locations?.[0]?.state) {
+        const stateCode = normalizeStateCode(firm.locations[0].state)
+        if (stateCode) {
+          const newUrl = `/${stateCode}/firm/${slug}`
+          console.log('🔄 Redirecting to:', newUrl)
+          return NextResponse.redirect(new URL(newUrl, request.url), 301)
+        }
+      }
+    } catch (error) {
+      console.error('❌ Error looking up firm for redirect:', error)
+    }
+  }
+
   // Allow public routes that don't need auth
   const publicRoutes = ['/', '/search', '/login', '/register', '/forgot-password', '/submit-review']
   if (publicRoutes.includes(pathname)) {
     console.log('✅ Public route - allowing:', pathname)
+    return NextResponse.next()
+  }
+
+  // Allow new state-based public profile routes
+  const newPublicProfilePattern = /^\/[a-z]{2,3}\/(lawyer|firm)\/[a-z0-9-]+$/i
+  if (newPublicProfilePattern.test(pathname)) {
+    console.log('✅ State-based public profile route - allowing:', pathname)
+    return NextResponse.next()
+  }
+
+  // Allow state pages
+  const statePagePattern = /^\/[a-z]{2,3}$/i
+  if (statePagePattern.test(pathname)) {
+    console.log('✅ State page route - allowing:', pathname)
     return NextResponse.next()
   }
 

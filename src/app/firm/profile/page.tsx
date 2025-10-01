@@ -72,16 +72,16 @@ export default async function FirmProfilePage() {
   return (
     <div className="space-y-6">
       {/* Header with Edit Button */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900">Firm Profile</h1>
-          <p className="text-slate-600 mt-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Firm Profile</h1>
+          <p className="text-base md:text-lg text-slate-600 mt-2">
             Manage your firm's information
           </p>
         </div>
-        <Button asChild>
+        <Button asChild size="lg" className="w-full sm:w-auto">
           <Link href="/firm/profile/edit">
-            <Edit className="h-4 w-4 mr-2" />
+            <Edit className="h-5 w-5 mr-2" />
             Edit Profile
           </Link>
         </Button>
@@ -136,30 +136,32 @@ export default async function FirmProfilePage() {
           <Separator />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p className="text-sm text-slate-600 mb-1">Contact Email</p>
-              <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-slate-400" />
-                <span className="font-medium">{firm.email}</span>
+            {firm.email && (
+              <div>
+                <p className="text-sm text-slate-600 mb-1">Contact Email</p>
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2 text-slate-400" />
+                  <span className="font-medium">{firm.email}</span>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div>
-              <p className="text-sm text-slate-600 mb-1">Phone Number</p>
-              <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-slate-400" />
-                <span className="font-medium">{firm.phone}</span>
+            {firm.phone && (
+              <div>
+                <p className="text-sm text-slate-600 mb-1">Phone Number</p>
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2 text-slate-400" />
+                  <span className="font-medium">{firm.phone}</span>
+                </div>
               </div>
-            </div>
+            )}
 
             {firm.website && (
               <div>
                 <p className="text-sm text-slate-600 mb-1">Website</p>
                 <div className="flex items-center">
                   <Globe className="h-4 w-4 mr-2 text-slate-400" />
-                  <a href={firm.website} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:underline">
-                    {firm.website}
-                  </a>
+                  <span className="font-medium">{firm.website}</span>
                 </div>
               </div>
             )}

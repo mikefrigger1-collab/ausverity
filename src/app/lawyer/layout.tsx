@@ -25,7 +25,7 @@ export default async function LawyerLayout({
   return (
     <div className="flex h-screen bg-slate-50">
       <LawyerSidebar />
-      <main className="flex-1 overflow-y-auto">
+      <main id="lawyer-main-content" className="flex-1 overflow-y-auto">
         <div className="max-w-7xl mx-auto p-8">
           {children}
         </div>

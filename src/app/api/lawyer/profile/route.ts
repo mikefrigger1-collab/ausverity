@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
           lawyerId: lawyer.id,
           courtName: appearance.courtName,
           jurisdiction: appearance.jurisdiction,
-          appearanceCount: appearance.appearanceCount || 0
+          appearanceCount: appearance.appearanceCount || ''
         }))
       })
     }
@@ -383,7 +383,7 @@ export async function PUT(request: NextRequest) {
           lawyerId: existingLawyer.id,
           courtName: appearance.courtName,
           jurisdiction: appearance.jurisdiction,
-          appearanceCount: appearance.appearanceCount || 0
+          appearanceCount: appearance.appearanceCount || ''
         }))
       })
     }

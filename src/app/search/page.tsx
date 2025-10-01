@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -19,6 +19,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Slider } from "@/components/ui/slider"
 import { SiteLayout } from "@/components/site-layout"
+import { getLawyerUrl, getFirmUrl } from "@/lib/utils/url-helpers"
 import {
   Search,
   Star,
@@ -30,6 +31,7 @@ import {
   Clock,
   Award,
   ChevronDown,
+  ChevronRight,
   X,
   Loader2,
   Grid,
@@ -65,19 +67,134 @@ interface SearchResult {
   featured?: boolean
 }
 
-// Practice areas for filtering
-const practiceAreas = [
-  "Family Law",
-  "Criminal Law", 
-  "Property Law",
-  "Commercial Law",
-  "Personal Injury",
-  "Wills & Estates",
-  "Employment Law",
-  "Immigration Law",
-  "Tax Law",
-  "Intellectual Property"
-]
+// Practice areas organized by category
+const practiceAreasData: Record<string, string[]> = {
+  "Family Law": [
+    "Divorce & Separation",
+    "Child Custody & Parenting",
+    "Property Settlement",
+    "Spousal Maintenance",
+    "De Facto Relationships",
+    "Adoption",
+    "Domestic Violence & AVO"
+  ],
+  "Criminal Law": [
+    "Drink Driving & Traffic Offences",
+    "Assault & Violence",
+    "Drug Offences",
+    "Fraud & White Collar Crime",
+    "Sexual Offences",
+    "Theft & Property Crimes",
+    "Appeals"
+  ],
+  "Property Law": [
+    "Conveyancing",
+    "Residential Property",
+    "Commercial Property",
+    "Property Development",
+    "Leasing & Tenancy",
+    "Strata & Body Corporate",
+    "Property Disputes"
+  ],
+  "Wills & Estates": [
+    "Will Drafting",
+    "Estate Planning",
+    "Probate & Administration",
+    "Contested Wills",
+    "Powers of Attorney",
+    "Guardianship",
+    "Trust Law"
+  ],
+  "Employment Law": [
+    "Unfair Dismissal",
+    "Workplace Discrimination",
+    "Workplace Bullying",
+    "Employment Contracts",
+    "Workers Compensation",
+    "Redundancy",
+    "Workplace Safety"
+  ],
+  "Personal Injury": [
+    "Motor Vehicle Accidents",
+    "Medical Negligence",
+    "Public Liability Claims",
+    "Work Injury Compensation",
+    "Total & Permanent Disability (TPD)",
+    "Dust Diseases"
+  ],
+  "Business Law": [
+    "Commercial Law",
+    "Company Law",
+    "Contract Law",
+    "Business Formation & Structure",
+    "Mergers & Acquisitions",
+    "Commercial Disputes",
+    "Business Sales & Purchases",
+    "Franchising",
+    "Partnership Agreements"
+  ],
+  "Immigration Law": [
+    "Visa Applications",
+    "Skilled Migration",
+    "Family Migration",
+    "Business Migration",
+    "Citizenship",
+    "Visa Refusals & Appeals",
+    "Deportation & Removal"
+  ],
+  "Litigation": [
+    "Civil Litigation",
+    "Commercial Litigation",
+    "Mediation & Alternative Dispute Resolution",
+    "Debt Recovery",
+    "Building & Construction Disputes",
+    "Defamation"
+  ],
+  "Bankruptcy & Insolvency": [
+    "Bankruptcy",
+    "Insolvency",
+    "Liquidation",
+    "Voluntary Administration",
+    "Debt Agreements"
+  ],
+  "Intellectual Property": [
+    "Trademark Law",
+    "Copyright Law",
+    "Patent Law",
+    "Trade Secrets"
+  ],
+  "Tax Law": [
+    "Income Tax",
+    "GST",
+    "Tax Disputes",
+    "Tax Planning"
+  ],
+  "Environmental Law": [
+    "Planning & Development",
+    "Native Title",
+    "Mining & Resources"
+  ],
+  "Administrative Law": [
+    "Government Law",
+    "Constitutional Law",
+    "Freedom of Information"
+  ],
+  "Other": [
+    "Aviation Law",
+    "Banking & Finance Law",
+    "Competition & Consumer Law",
+    "Entertainment & Media Law",
+    "Health & Medical Law",
+    "Insurance Law",
+    "Privacy Law",
+    "Sports Law",
+    "Superannuation Law",
+    "Technology & IT Law",
+    "Telecommunications Law"
+  ]
+}
+
+const primaryCategories = Object.keys(practiceAreasData)
 
 // Australian states
 const states = [
@@ -95,6 +212,7 @@ function SearchPageContent() {
   const [selectedAreas, setSelectedAreas] = useState<string[]>(
     searchParams.get('areas')?.split(',').filter(Boolean) || []
   )
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([])
   const [minRating, setMinRating] = useState([parseFloat(searchParams.get('rating') || '0')])
   const [minExperience, setMinExperience] = useState([parseInt(searchParams.get('experience') || '0')])
   const [resultType, setResultType] = useState<'all' | 'lawyer' | 'firm'>(
@@ -187,10 +305,19 @@ function SearchPageContent() {
 
   // Handle practice area filter
   const togglePracticeArea = (area: string) => {
-    setSelectedAreas(prev => 
-      prev.includes(area) 
+    setSelectedAreas(prev =>
+      prev.includes(area)
         ? prev.filter(a => a !== area)
         : [...prev, area]
+    )
+  }
+
+  // Handle category expansion
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
     )
   }
 
@@ -209,9 +336,16 @@ function SearchPageContent() {
   // Render result card
   const renderResultCard = (result: SearchResult) => {
     const isLawyer = result.type === 'lawyer'
-    const profileUrl = isLawyer
-    ? `/lawyer/${result.slug || result.id}` // Fallback to id if slug missing
-    : `/firm/${result.slug || result.id}` // Fallback to id if slug missing
+
+    // Generate state-based URL or fallback to old format
+    let profileUrl: string
+    if (isLawyer) {
+      profileUrl = getLawyerUrl({ slug: result.slug, state: result.location.state })
+        || `/lawyer/${result.slug || result.id}`
+    } else {
+      profileUrl = getFirmUrl({ slug: result.slug, locations: [result.location] })
+        || `/firm/${result.slug || result.id}`
+    }
 
     return (
       <Link key={result.id} href={profileUrl} className="block h-full w-full">
@@ -435,17 +569,51 @@ function SearchPageContent() {
                       <label className="text-sm font-medium text-slate-900 mb-3 block">
                         Practice Areas
                       </label>
-                      <div className="space-y-2 max-h-48 overflow-y-auto">
-                        {practiceAreas.map((area) => (
-                          <div key={area} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={area}
-                              checked={selectedAreas.includes(area)}
-                              onCheckedChange={() => togglePracticeArea(area)}
-                            />
-                            <label htmlFor={area} className="text-sm text-slate-700 cursor-pointer">
-                              {area}
-                            </label>
+                      <div className="space-y-1 max-h-96 overflow-y-auto">
+                        {primaryCategories.map((category) => (
+                          <div key={category}>
+                            {/* Primary Category */}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                togglePracticeArea(category)
+                                toggleCategory(category)
+                              }}
+                              className="w-full flex items-center justify-between px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`cat-${category}`}
+                                  checked={selectedAreas.includes(category)}
+                                  onCheckedChange={() => {}}
+                                  onClick={(e) => e.preventDefault()}
+                                />
+                                <span>{category}</span>
+                              </div>
+                              {expandedCategories.includes(category) ? (
+                                <ChevronDown className="w-4 h-4 text-slate-500" />
+                              ) : (
+                                <ChevronRight className="w-4 h-4 text-slate-500" />
+                              )}
+                            </button>
+
+                            {/* Subcategories */}
+                            {expandedCategories.includes(category) && (
+                              <div className="ml-6 mt-1 space-y-1">
+                                {practiceAreasData[category].map((subArea) => (
+                                  <div key={subArea} className="flex items-center space-x-2 py-1.5">
+                                    <Checkbox
+                                      id={`sub-${subArea}`}
+                                      checked={selectedAreas.includes(subArea)}
+                                      onCheckedChange={() => togglePracticeArea(subArea)}
+                                    />
+                                    <label htmlFor={`sub-${subArea}`} className="text-sm text-slate-600 cursor-pointer">
+                                      {subArea}
+                                    </label>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>

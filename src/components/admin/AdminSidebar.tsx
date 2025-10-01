@@ -10,7 +10,8 @@ import {
   BarChart3,
   Settings,
   Scale,
-  UserCheck
+  UserCheck,
+  Mail
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -21,6 +22,7 @@ const navigation = [
   { name: "Law Firms", href: "/admin/firms", icon: Scale },
   { name: "Users", href: "/admin/users", icon: Users },
   { name: "Reviews", href: "/admin/reviews", icon: MessageSquare },
+  { name: "Messages", href: "/admin/messages", icon: Mail },
   { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ]

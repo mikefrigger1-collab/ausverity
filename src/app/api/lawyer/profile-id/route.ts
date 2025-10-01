@@ -13,13 +13,10 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    // Find the lawyer profile for this user
+    // Find the lawyer profile for this user (any status)
     const lawyer = await db.lawyer.findUnique({
-      where: { 
-        userId: session.user.id,
-        status: {
-          in: ['PENDING', 'PUBLISHED'] // Only return if profile has been created and submitted
-        }
+      where: {
+        userId: session.user.id
       },
       select: {
         id: true,
@@ -28,14 +25,15 @@ export async function GET(request: NextRequest) {
       }
     })
 
-    if (!lawyer || !lawyer.slug) {
+    if (!lawyer) {
       return NextResponse.json(
-        { profileSlug: null, hasProfile: false },
+        { profileId: null, profileSlug: null, hasProfile: false },
         { status: 200 }
       )
     }
 
     return NextResponse.json({
+      profileId: lawyer.id,
       profileSlug: lawyer.slug,
       hasProfile: true,
       status: lawyer.status

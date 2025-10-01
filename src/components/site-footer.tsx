@@ -26,7 +26,7 @@ export function SiteFooter() {
               </div>
               <div>
                 <p className="text-sm font-medium text-white mb-1">Email</p>
-                <p className="text-sm text-slate-400">support@ausverity.com.au</p>
+                <p className="text-sm text-slate-400">contact@ausverity.com.au</p>
               </div>
             </div>
           </div>
@@ -38,22 +38,7 @@ export function SiteFooter() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/search" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  Find Lawyers
-                </Link>
-              </li>
-              <li>
-                <Link href="/practice-areas" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  Practice Areas
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-it-works" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/reviews/submit" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                <Link href="/submit-review" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
                   Write a Review
                 </Link>
               </li>
@@ -77,11 +62,6 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  Pricing Plans
-                </Link>
-              </li>
-              <li>
                 <Link href="/lawyer/dashboard" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
                   Lawyer Dashboard
                 </Link>
@@ -89,11 +69,6 @@ export function SiteFooter() {
               <li>
                 <Link href="/firm/dashboard" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
                   Firm Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link href="/help" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  Help Centre
                 </Link>
               </li>
             </ul>
@@ -113,11 +88,6 @@ export function SiteFooter() {
               <li>
                 <Link href="/contact" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
-                  Careers
                 </Link>
               </li>
               <li>

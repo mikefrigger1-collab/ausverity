@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useSession, signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
@@ -13,27 +13,37 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { 
-  Shield, 
-  Menu, 
-  Search, 
-  User, 
-  Settings, 
+import { AUSTRALIAN_STATES } from "@/lib/constants/states"
+import {
+  Shield,
+  Menu,
+  Search,
+  User,
+  Settings,
   LogOut,
   LayoutDashboard,
   Building2,
   Scale,
-  HelpCircle
+  HelpCircle,
+  MapPin,
+  ChevronDown
 } from "lucide-react"
 
 export function SiteHeader() {
   const { data: session } = useSession()
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   const navigation = [
-    { name: "Find Lawyers", href: "/search", icon: Search },
     { name: "About", href: "/about", icon: HelpCircle },
   ]
+
+  const states = AUSTRALIAN_STATES.map(state => ({
+    code: state.code,
+    name: state.name,
+    shortName: state.shortName
+  }))
 
   const handleSignOut = () => {
     signOut({ callbackUrl: "/" })
@@ -41,7 +51,7 @@ export function SiteHeader() {
 
   const getDashboardLink = () => {
     if (!session?.user?.role) return "/dashboard"
-    
+
     switch (session.user.role) {
       case "ADMIN":
         return "/admin"
@@ -56,8 +66,36 @@ export function SiteHeader() {
     }
   }
 
+  // Handle scroll to show/hide header
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY
+
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          // Scrolling down & past threshold
+          setIsVisible(false)
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          setIsVisible(true)
+        }
+
+        setLastScrollY(currentScrollY)
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar)
+      return () => {
+        window.removeEventListener('scroll', controlNavbar)
+      }
+    }
+  }, [lastScrollY])
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 shadow-sm">
+    <header className={`sticky z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 shadow-sm transition-all duration-300 ${
+      isVisible ? 'top-0 opacity-100' : '-top-20 opacity-0'
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -73,13 +111,46 @@ export function SiteHeader() {
 
           {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+
+
+            {/* States Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center space-x-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors duration-200">
+                  <MapPin className="h-4 w-4" />
+                  <span>States</span>
+                  <ChevronDown className="h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-56">
+                <div className="px-2 py-1.5 text-xs font-semibold text-slate-500">
+                  Browse by State
+                </div>
+                <DropdownMenuSeparator />
+                {states.map((state) => (
+                  <DropdownMenuItem key={state.code} asChild>
+                    <Link href={`/${state.code}`} className="flex items-center justify-between cursor-pointer">
+                      <span>{state.name}</span>
+                      <span className="text-xs text-slate-500">{state.shortName}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/search" className="flex items-center cursor-pointer font-medium">
+                    <Search className="mr-2 h-4 w-4" />
+                    <span>See All Lawyers</span>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+                        {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className="flex items-center space-x-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors duration-200"
               >
-                <item.icon className="h-4 w-4" />
                 <span>{item.name}</span>
               </Link>
             ))}
@@ -129,18 +200,6 @@ export function SiteHeader() {
                         <span>Dashboard</span>
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/profile" className="flex items-center">
-                        <User className="mr-2 h-4 w-4" />
-                        <span>Profile</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/settings" className="flex items-center">
-                        <Settings className="mr-2 h-4 w-4" />
-                        <span>Settings</span>
-                      </Link>
-                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={handleSignOut} className="text-red-600 focus:text-red-600 focus:bg-red-50">
                       <LogOut className="mr-2 h-4 w-4" />
@@ -187,7 +246,40 @@ export function SiteHeader() {
                   <div className="flex-1 overflow-y-auto px-6 py-6">
                     <div className="space-y-6">
                       {/* Mobile Navigation */}
-                      <nav className="flex flex-col space-y-1">
+
+
+                      {/* Mobile States Section */}
+                      <div className="pt-4">
+                        <div className="px-4 mb-3">
+                          <h3 className="text-sm font-semibold text-slate-500 flex items-center">
+                            <MapPin className="h-4 w-4 mr-2" />
+                            Browse by State
+                          </h3>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          {states.map((state) => (
+                            <Link
+                              key={state.code}
+                              href={`/${state.code}`}
+                              onClick={() => setIsOpen(false)}
+                              className="flex flex-col items-center justify-center px-3 py-3 text-center bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="text-sm font-medium">{state.shortName}</span>
+                              <span className="text-xs text-slate-500 mt-0.5">{state.name.split(' ')[0]}</span>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link
+                          href="/search"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center space-x-3 px-4 py-3.5 mt-3 text-base font-medium text-slate-900 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                        >
+                          <Search className="h-5 w-5 flex-shrink-0" />
+                          <span>See All Lawyers</span>
+                        </Link>
+                      </div>
+
+                                            <nav className="flex flex-col space-y-1 pt-4 border-t border-slate-200">
                         {navigation.map((item) => (
                           <Link
                             key={item.name}
@@ -225,14 +317,6 @@ export function SiteHeader() {
                           >
                             <LayoutDashboard className="h-5 w-5 flex-shrink-0" />
                             <span>Dashboard</span>
-                          </Link>
-                          <Link
-                            href="/profile"
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center space-x-3 px-4 py-3.5 text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
-                          >
-                            <User className="h-5 w-5 flex-shrink-0" />
-                            <span>Profile</span>
                           </Link>
                         </div>
                       ) : (

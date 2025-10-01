@@ -617,8 +617,8 @@ export default function FirmProfileForm({
       </Card>
 
       {/* Sticky Submit Buttons */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="fixed bottom-0 left-0 lg:left-64 right-0 bg-white border-t border-slate-200 shadow-lg z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           {/* Auto-save status */}
           <div className="flex justify-center items-center gap-2 text-sm mb-3">
             {isSaving && (

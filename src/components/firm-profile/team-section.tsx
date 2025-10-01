@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, Star } from "lucide-react"
 import type { FirmProfileData } from "@/lib/data/firms"
+import { getLawyerUrl } from "@/lib/utils/url-helpers"
 
 type Lawyer = NonNullable<FirmProfileData>['lawyers'][0]
 
@@ -33,8 +34,12 @@ export function TeamSection({ lawyers }: TeamSectionProps) {
               : 0
             const fullName = `${lawyer.firstName} ${lawyer.lastName}`
 
+            const lawyerUrl = lawyer.slug && lawyer.state
+              ? getLawyerUrl({ slug: lawyer.slug, state: lawyer.state })
+              : null
+
             return (
-              <Link key={lawyer.id} href={lawyer.slug ? `/lawyer/${lawyer.slug}` : `/lawyers/${lawyer.id}`}>
+              <Link key={lawyer.id} href={lawyerUrl || `/lawyers/${lawyer.id}`}>
                 <div className="border border-slate-200 rounded-lg p-4 h-full hover:shadow-md hover:border-blue-200 transition-all cursor-pointer bg-white">
                   <div className="flex items-start gap-3">
                     <div className="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0">

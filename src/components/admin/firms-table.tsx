@@ -32,6 +32,7 @@ import {
   Building2,
   Users
 } from 'lucide-react'
+import { getFirmUrl } from '@/lib/utils/url-helpers'
 
 interface FirmData {
   id: string
@@ -236,9 +237,9 @@ export function FirmsTable({ firms }: FirmsTableProps) {
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
-                        {firm.slug && (
+                        {firm.slug && firm.locations.length > 0 && (
                           <Button asChild variant="ghost" size="sm">
-                            <Link href={`/firm/${firm.slug}`} target="_blank">
+                            <Link href={getFirmUrl({ slug: firm.slug, locations: firm.locations }) || `/firm/${firm.slug}`} target="_blank">
                               <Eye className="h-4 w-4" />
                             </Link>
                           </Button>

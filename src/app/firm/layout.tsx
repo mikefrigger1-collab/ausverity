@@ -25,7 +25,7 @@ export default async function FirmLayout({
   return (
     <div className="flex h-screen bg-slate-50">
       <FirmSidebar />
-      <main className="flex-1 overflow-y-auto">
+      <main id="firm-main-content" className="flex-1 overflow-y-auto">
         <div className="max-w-7xl mx-auto p-8">
           {children}
         </div>

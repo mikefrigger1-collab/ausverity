@@ -58,7 +58,7 @@ interface Lawyer {
     id: string
     courtName: string
     jurisdiction: string
-    appearanceCount: number
+    appearanceCount: string
   }>
   languages?: Array<{
     id: string
@@ -93,10 +93,6 @@ export default function LawyerProfileForm({
 }: LawyerProfileFormProps) {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSaving, setIsSaving] = useState(false)
-  const [lastSaved, setLastSaved] = useState<Date | null>(null)
-  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const initialLoadRef = useRef(true)
 
   // Form state - all fields including arrays
   const [formData, setFormData] = useState({
@@ -254,114 +250,6 @@ export default function LawyerProfileForm({
     }
   }
 
-  // Auto-save function
-  const autoSave = async () => {
-    console.log('[AUTO-SAVE] Starting auto-save at', new Date().toISOString())
-    setIsSaving(true)
-
-    try {
-      // Filter out empty entries
-      const validPracticeAreas = formData.practiceAreas.filter(pa => pa.specialisationId)
-      const validCourtAppearances = formData.courtAppearances.filter(ca => ca.courtName && ca.jurisdiction)
-      const validLanguages = formData.languages.filter(lang => lang.languageName && lang.proficiencyLevel)
-      const validCertifications = formData.certifications.filter(cert => cert.name && cert.issuingBody && cert.dateEarned)
-
-      console.log('[AUTO-SAVE] Saving data:', {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        practiceAreasCount: validPracticeAreas.length,
-        courtAppearancesCount: validCourtAppearances.length,
-        languagesCount: validLanguages.length,
-        certificationsCount: validCertifications.length
-      })
-
-      // Check if profile exists to determine correct HTTP method
-      const profileCheckResponse = await fetch('/api/lawyer/profile-id')
-      const profileCheck = await profileCheckResponse.json()
-      const profileExists = profileCheck.profileId !== null
-
-      const response = await fetch('/api/lawyer/profile', {
-        method: profileExists ? 'PUT' : 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          position: formData.position,
-          bio: formData.bio,
-          photoUrl: formData.photoUrl,
-          yearsExperience: formData.yearsExperience || null,
-          phone: formData.phone,
-          email: formData.email,
-          displayPhone: formData.displayPhone,
-          displayEmail: formData.displayEmail,
-          address: formData.address,
-          city: formData.city,
-          state: formData.state,
-          postcode: formData.postcode,
-          country: formData.country,
-          linkedinUrl: formData.linkedinUrl,
-          twitterUrl: formData.twitterUrl,
-          facebookUrl: formData.facebookUrl,
-          websiteUrl: formData.websiteUrl,
-          operatingHours: formData.operatingHours,
-          practiceAreas: validPracticeAreas,
-          courtAppearances: validCourtAppearances,
-          languages: validLanguages,
-          certifications: validCertifications
-        }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        console.error('[AUTO-SAVE] Failed:', data.error)
-        throw new Error(data.error || 'Failed to auto-save')
-      }
-
-      console.log('[AUTO-SAVE] Success:', data)
-      setLastSaved(new Date())
-    } catch (error) {
-      console.error('[AUTO-SAVE] Error:', error)
-    } finally {
-      setIsSaving(false)
-    }
-  }
-
-  // Debounced auto-save effect
-  useEffect(() => {
-    // Skip auto-save on initial load
-    if (initialLoadRef.current) {
-      initialLoadRef.current = false
-      console.log('[AUTO-SAVE] Skipping initial load')
-      return
-    }
-
-    // Only auto-save if we have required fields
-    if (!formData.firstName || !formData.lastName) {
-      console.log('[AUTO-SAVE] Skipping - missing required fields')
-      return
-    }
-
-    // Clear existing timeout
-    if (saveTimeoutRef.current) {
-      clearTimeout(saveTimeoutRef.current)
-    }
-
-    // Set new timeout for 2 seconds after last change
-    console.log('[AUTO-SAVE] Setting timeout for 2 seconds')
-    saveTimeoutRef.current = setTimeout(() => {
-      autoSave()
-    }, 2000)
-
-    // Cleanup
-    return () => {
-      if (saveTimeoutRef.current) {
-        clearTimeout(saveTimeoutRef.current)
-      }
-    }
-  }, [formData])
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 pb-24">
@@ -754,26 +642,8 @@ export default function LawyerProfileForm({
       </div>
 
       {/* Sticky Submit Buttons */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          {/* Auto-save status */}
-          <div className="flex justify-center items-center gap-2 text-sm mb-3">
-            {isSaving && (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin text-blue-600" />
-                <span className="text-slate-600">Saving changes...</span>
-              </>
-            )}
-            {!isSaving && lastSaved && (
-              <>
-                <span className="text-green-600">✓</span>
-                <span className="text-slate-600">
-                  Last saved at {lastSaved.toLocaleTimeString()}
-                </span>
-              </>
-            )}
-          </div>
-
+      <div className="fixed bottom-0 left-0 lg:left-64 right-0 bg-white border-t border-slate-200 shadow-lg z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center gap-4">
             <Button
               type="button"

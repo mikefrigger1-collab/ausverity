@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { ContactForm } from "@/components/contact-form"
 import { ContactUpgradePrompt } from "@/components/contact-upgrade-prompt"
 import { ShareButton } from "@/components/lawyer-profile/share-button"
+import { getFirmUrl, getLawyerUrl } from "@/lib/utils/url-helpers"
 import {
   Star,
   MapPin,
@@ -95,8 +96,8 @@ export function LawyerHeader({ lawyer }: LawyerHeaderProps) {
               {lawyer.firm && (
                 <div className="flex items-center gap-2 text-blue-600">
                   <Building2 className="w-4 h-4" />
-                  {lawyer.firm.slug ? (
-                    <Link href={`/firm/${lawyer.firm.slug}`} className="hover:underline font-medium">
+                  {lawyer.firm.slug && lawyer.firm.locations ? (
+                    <Link href={getFirmUrl({ slug: lawyer.firm.slug, locations: lawyer.firm.locations }) || '#'} className="hover:underline font-medium">
                       {lawyer.firm.name}
                     </Link>
                   ) : (
@@ -153,7 +154,7 @@ export function LawyerHeader({ lawyer }: LawyerHeaderProps) {
             <div className="w-1/2 lg:w-full">
               <ShareButton
                 lawyerName={fullName}
-                profileUrl={`/lawyer/${lawyer.slug}`}
+                profileUrl={getLawyerUrl({ slug: lawyer.slug, state: lawyer.state }) || `/lawyer/${lawyer.slug}`}
                 variant="ghost"
                 size="lg"
                 className="w-full"

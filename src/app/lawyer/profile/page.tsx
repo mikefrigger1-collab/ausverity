@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { 
+import {
   User,
   Mail,
   Phone,
@@ -17,10 +17,14 @@ import {
   Building2,
   Award,
   Languages,
-  Scale
+  Scale,
+  Globe,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Clock
 } from 'lucide-react'
 import Link from 'next/link'
-import { ContactReveal } from '@/components/lawyer/ContactReveal'
 
 export default async function LawyerProfilePage() {
   const session = await auth()
@@ -77,22 +81,22 @@ export default async function LawyerProfilePage() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mt-12">
       {/* Header with Edit Button */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900">My Profile</h1>
-          <p className="text-base md:text-lg text-slate-600 mt-2">
-            Manage your professional information
-          </p>
-        </div>
-        <Button asChild size="lg">
-          <Link href="/lawyer/profile/edit">
-            <Edit className="h-5 w-5 mr-2" />
-            Edit Profile
-          </Link>
-        </Button>
-      </div>
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h1 className="text-3xl md:text-4xl font-bold text-slate-900">My Profile</h1>
+<p className="text-base md:text-lg text-slate-600 mt-2">
+ Manage your professional information
+</p>
+</div>
+<Button asChild size="lg" className="w-full sm:w-auto">
+<Link href="/firm/profile/edit">
+<Edit className="h-5 w-5 mr-2" />
+Edit Profile
+</Link>
+</Button>
+</div>
 
       {/* Profile Status */}
       <Card className={
@@ -177,28 +181,31 @@ export default async function LawyerProfilePage() {
             )}
           </div>
 
-          {(lawyer.displayEmail && lawyer.email) || (lawyer.displayPhone && lawyer.phone) ? (
-            <>
-              <Separator />
-              <div>
-                <p className="text-sm font-medium text-slate-600 mb-3">Contact Information</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {lawyer.displayEmail && lawyer.email && (
-                    <div>
-                      <p className="text-xs text-slate-500 mb-2">Email</p>
-                      <ContactReveal type="email" value={lawyer.email} />
-                    </div>
-                  )}
-                  {lawyer.displayPhone && lawyer.phone && (
-                    <div>
-                      <p className="text-xs text-slate-500 mb-2">Phone</p>
-                      <ContactReveal type="phone" value={lawyer.phone} />
-                    </div>
-                  )}
+          <Separator />
+
+          <div>
+            <p className="text-sm font-medium text-slate-600 mb-3">Contact Information</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {lawyer.email && (
+                <div>
+                  <p className="text-xs text-slate-500 mb-2">Email</p>
+                  <div className="flex items-center">
+                    <Mail className="h-4 w-4 mr-2 text-slate-400" />
+                    <span className="text-base text-slate-900">{lawyer.email}</span>
+                  </div>
                 </div>
-              </div>
-            </>
-          ) : null}
+              )}
+              {lawyer.phone && (
+                <div>
+                  <p className="text-xs text-slate-500 mb-2">Phone</p>
+                  <div className="flex items-center">
+                    <Phone className="h-4 w-4 mr-2 text-slate-400" />
+                    <span className="text-base text-slate-900">{lawyer.phone}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
 
           {lawyer.bio && (
             <>
@@ -206,6 +213,89 @@ export default async function LawyerProfilePage() {
               <div>
                 <p className="text-sm font-medium text-slate-600 mb-3">Biography</p>
                 <p className="text-base text-slate-900 whitespace-pre-wrap leading-relaxed">{lawyer.bio}</p>
+              </div>
+            </>
+          )}
+
+          {/* Location */}
+          {(lawyer.address || lawyer.city || lawyer.state) && (
+            <>
+              <Separator />
+              <div>
+                <p className="text-sm font-medium text-slate-600 mb-3">Office Location</p>
+                <div className="flex items-start">
+                  <MapPin className="h-5 w-5 mr-3 text-slate-400 mt-0.5" />
+                  <div className="text-base text-slate-900">
+                    {lawyer.address && <p>{lawyer.address}</p>}
+                    <p>
+                      {lawyer.city && lawyer.city}
+                      {lawyer.city && lawyer.state && ', '}
+                      {lawyer.state && lawyer.state}
+                      {lawyer.postcode && ` ${lawyer.postcode}`}
+                    </p>
+                    {lawyer.country && <p>{lawyer.country}</p>}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Social Media & Website */}
+          {(lawyer.linkedinUrl || lawyer.twitterUrl || lawyer.facebookUrl || lawyer.websiteUrl) && (
+            <>
+              <Separator />
+              <div>
+                <p className="text-sm font-medium text-slate-600 mb-3">Online Presence</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {lawyer.websiteUrl && (
+                    <div className="flex items-center">
+                      <Globe className="h-4 w-4 mr-2 text-slate-400" />
+                      <span className="text-base text-slate-900">{lawyer.websiteUrl}</span>
+                    </div>
+                  )}
+                  {lawyer.linkedinUrl && (
+                    <div className="flex items-center">
+                      <Linkedin className="h-4 w-4 mr-2 text-blue-700" />
+                      <span className="text-base text-slate-900">{lawyer.linkedinUrl}</span>
+                    </div>
+                  )}
+                  {lawyer.twitterUrl && (
+                    <div className="flex items-center">
+                      <Twitter className="h-4 w-4 mr-2 text-blue-400" />
+                      <span className="text-base text-slate-900">{lawyer.twitterUrl}</span>
+                    </div>
+                  )}
+                  {lawyer.facebookUrl && (
+                    <div className="flex items-center">
+                      <Facebook className="h-4 w-4 mr-2 text-blue-600" />
+                      <span className="text-base text-slate-900">{lawyer.facebookUrl}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Operating Hours */}
+          {lawyer.operatingHours && Object.keys(lawyer.operatingHours).length > 0 && (
+            <>
+              <Separator />
+              <div>
+                <p className="text-sm font-medium text-slate-600 mb-3">Operating Hours</p>
+                <div className="space-y-2">
+                  {Object.entries(lawyer.operatingHours).map(([day, hours]: [string, any]) => (
+                    <div key={day} className="flex items-center justify-between py-2 px-3 bg-slate-50 rounded">
+                      <span className="text-base font-medium text-slate-900 capitalize">{day}</span>
+                      {hours?.closed ? (
+                        <span className="text-sm text-slate-500">Closed</span>
+                      ) : hours?.open && hours?.close ? (
+                        <span className="text-base text-slate-900">{hours.open} - {hours.close}</span>
+                      ) : (
+                        <span className="text-sm text-slate-500">Not set</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </>
           )}

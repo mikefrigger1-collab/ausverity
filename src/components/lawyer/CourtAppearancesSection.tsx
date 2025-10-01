@@ -12,7 +12,7 @@ export interface CourtAppearance {
   id?: string
   courtName: string
   jurisdiction: string
-  appearanceCount: number
+  appearanceCount: string
 }
 
 interface CourtAppearancesSectionProps {
@@ -20,27 +20,29 @@ interface CourtAppearancesSectionProps {
   onChange: (appearances: CourtAppearance[]) => void
 }
 
-const AUSTRALIAN_JURISDICTIONS = [
-  'High Court of Australia',
-  'Federal Court of Australia',
-  'Family Court of Australia',
-  'NSW Supreme Court',
-  'VIC Supreme Court',
-  'QLD Supreme Court',
-  'SA Supreme Court',
-  'WA Supreme Court',
-  'TAS Supreme Court',
-  'NT Supreme Court',
-  'ACT Supreme Court',
-  'NSW District Court',
-  'VIC County Court',
-  'QLD District Court',
-  'SA District Court',
-  'WA District Court',
-  'NSW Local Court',
-  'VIC Magistrates Court',
-  'QLD Magistrates Court',
+const COURT_TYPES = [
+  'Supreme Court',
+  'District Court',
+  'County Court',
+  'Magistrates Court',
+  'Local Court',
+  'Federal Court',
+  'Family Court',
+  'High Court',
+  'Tribunal',
   'Other'
+]
+
+const AUSTRALIAN_STATES = [
+  'NSW',
+  'VIC',
+  'QLD',
+  'WA',
+  'SA',
+  'TAS',
+  'ACT',
+  'NT',
+  'Federal'
 ]
 
 export function CourtAppearancesSection({
@@ -52,7 +54,7 @@ export function CourtAppearancesSection({
       id: `temp-${Date.now()}`,
       courtName: '',
       jurisdiction: '',
-      appearanceCount: 0
+      appearanceCount: ''
     }
     onChange([...value, newAppearance])
   }
@@ -73,7 +75,7 @@ export function CourtAppearancesSection({
       id: `temp-${Date.now()}`,
       courtName: '',
       jurisdiction: '',
-      appearanceCount: 0
+      appearanceCount: ''
     }])
   }
 
@@ -82,8 +84,11 @@ export function CourtAppearancesSection({
       <CardHeader className="space-y-2">
         <CardTitle className="flex items-center gap-3 mb-4 text-xl md:text-2xl">
           <Gavel className="w-6 h-6 text-blue-600" />
-          Court Appearances & Jurisdictions
+          Court Appearances
         </CardTitle>
+        <CardDescription>
+          Add the types of courts you practice in
+        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Court Appearance Entries */}
@@ -93,41 +98,48 @@ export function CourtAppearancesSection({
               <div className="flex items-center gap-3">
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3">
                   <div>
-                    <Label htmlFor={`court-${index}`} className="text-xs mb-2 ml-2">Court Name *</Label>
-                    <Input
-                      id={`court-${index}`}
-                      value={app.courtName}
-                      onChange={(e) => handleUpdateAppearance(index, 'courtName', e.target.value)}
-                      placeholder="e.g., Sydney District Court"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor={`jurisdiction-${index}`} className="text-xs mb-2 ml-2">Jurisdiction *</Label>
+                    <Label htmlFor={`court-${index}`} className="text-xs mb-2 ml-2">Type of Court *</Label>
                     <Select
-                      value={app.jurisdiction}
-                      onValueChange={(value) => handleUpdateAppearance(index, 'jurisdiction', value)}
+                      value={app.courtName}
+                      onValueChange={(value) => handleUpdateAppearance(index, 'courtName', value)}
                     >
-                      <SelectTrigger id={`jurisdiction-${index}`}>
-                        <SelectValue placeholder="Select jurisdiction" />
+                      <SelectTrigger id={`court-${index}`}>
+                        <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                       <SelectContent>
-                        {AUSTRALIAN_JURISDICTIONS.map((jur) => (
-                          <SelectItem key={jur} value={jur}>
-                            {jur}
+                        {COURT_TYPES.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor={`count-${index}`} className="text-xs mb-2 ml-2">Appearances *</Label>
+                    <Label htmlFor={`jurisdiction-${index}`} className="text-xs mb-2 ml-2">State *</Label>
+                    <Select
+                      value={app.jurisdiction}
+                      onValueChange={(value) => handleUpdateAppearance(index, 'jurisdiction', value)}
+                    >
+                      <SelectTrigger id={`jurisdiction-${index}`}>
+                        <SelectValue placeholder="Select state" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {AUSTRALIAN_STATES.map((state) => (
+                          <SelectItem key={state} value={state}>
+                            {state}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor={`count-${index}`} className="text-xs mb-2 ml-2">Appearances</Label>
                     <Input
                       id={`count-${index}`}
-                      type="number"
-                      min="0"
                       value={app.appearanceCount}
-                      onChange={(e) => handleUpdateAppearance(index, 'appearanceCount', parseInt(e.target.value) || 0)}
-                      placeholder="Number"
+                      onChange={(e) => handleUpdateAppearance(index, 'appearanceCount', e.target.value)}
+                      placeholder="e.g., 50+, 100+, Frequent"
                     />
                   </div>
                 </div>

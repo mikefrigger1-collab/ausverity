@@ -1,0 +1,986 @@
+// Tasmania Practice Area Content
+const TAS_CONTENT: Record<string, JSX.Element> = {
+  'family-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Family law in Tasmania operates under federal legislation including the Family Law Act 1975, with state courts handling specific matters such as family violence orders. Tasmania has comprehensive family law resources across Hobart, Launceston, and regional centres, with the Federal Circuit and Family Court providing services for families dealing with separation, divorce, and parenting disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Understanding Family Law in Tasmania</h3>
+      <p>
+        Tasmanian family lawyers handle divorce, property settlements, parenting arrangements, spousal maintenance, and de facto relationship matters. The Federal Circuit and Family Court of Australia operates from Hobart and Launceston. Tasmania's Magistrates Court handles family violence orders, which frequently intersect with family law proceedings. The state has a strong network of family law practitioners and support services across the state.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Key Areas of Family Law Practice</h3>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Divorce and Separation</h4>
+      <p>
+        Divorce in Tasmania requires 12 months separation. Separation under one roof is recognized where couples can demonstrate living separately. Tasmanian lawyers assist with divorce applications, address service complications, and handle disputed separation dates. The Federal Circuit and Family Court in Hobart processes divorce applications, with circuit services to Launceston and regional centres including Devonport and Burnie.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Child Custody and Parenting Arrangements</h4>
+      <p>
+        Parenting matters prioritize children's best interests under the Family Law Act. Tasmania encourages parenting plans negotiated between parents without court intervention. When agreement isn't possible, parenting orders address living arrangements, parenting time, parental responsibility, and child support. Tasmanian courts consider children's views, relationship with both parents, family violence history, and the benefit of meaningful relationships. Independent Children's Lawyers are appointed in complex cases.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Property Settlement</h4>
+      <p>
+        Property settlement involves identifying the asset pool, assessing contributions (financial and non-financial), considering future needs including health and earning capacity, and determining just and equitable division. Hobart's property values require expert valuations. Superannuation splitting and complex assets including businesses, farms, and trusts require specialist legal advice. Tasmanian property settlements often involve rural properties and family farms requiring specialized valuation and consideration.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">De Facto Relationships</h4>
+      <p>
+        Tasmania's relationship property laws largely mirror married couple provisions under federal jurisdiction, with state laws also applying under the Relationships Act 2003 (Tas). De facto couples in Tasmania have the same family law rights as married couples if the relationship lasted two years or there are children. Tasmania recognizes same-sex de facto relationships. Evidence requirements include cohabitation, financial interdependence, sexual relationship, and social recognition.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Family Violence Orders</h4>
+      <p>
+        Tasmania's Family Violence Act 2004 provides for family violence orders through Magistrates' Courts. Family violence orders protect victims from family violence including physical, sexual, psychological, economic abuse, and coercive control. Police can apply for police family violence orders and issue police family violence notices. Breaching a family violence order is a criminal offence. Tasmania has comprehensive family violence support services. Legal aid is available for family violence order matters.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Tasmania-Specific Resources</h3>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Family Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>1800RESPECT (National Family Violence Counselling):</strong> 1800 737 732 (24/7)</li>
+          <li><strong>Family Violence Counselling and Support Service:</strong> 1800 608 122 (24/7)</li>
+          <li><strong>Men's Referral Service:</strong> 1300 766 491 (24/7)</li>
+          <li><strong>Family Relationship Advice Line:</strong> 1800 050 321</li>
+          <li><strong>Legal Aid Commission of Tasmania:</strong> 1300 366 611</li>
+          <li><strong>Federal Circuit and Family Court (Hobart):</strong> (03) 6232 1040</li>
+          <li><strong>Women's Legal Service Tasmania:</strong> (03) 6278 1888</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Court Locations in Tasmania</h3>
+      <p>
+        The Federal Circuit and Family Court operates from Hobart and Launceston. Tasmania's Magistrates Courts across the state handle family violence order matters. Hobart has the principal family law registry. Regional Tasmania including Devonport, Burnie, and other centres is serviced through circuit sittings and video conferencing. Tasmania's integrated family violence service system coordinates legal, support, and protection services.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Mediation and Family Dispute Resolution</h3>
+      <p>
+        Family Dispute Resolution (FDR) is required before filing parenting applications, with parties obtaining section 60I certificates. Tasmania has Family Relationship Centres in Hobart and Launceston offering FDR services. Private mediators and collaborative law approaches are available. FDR isn't required where family violence exists or urgency dictates immediate court intervention. Tasmanian family lawyers facilitate dispute resolution and represent clients when court proceedings are necessary.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Legal Aid and Support Services</h3>
+      <p>
+        Legal Aid Commission of Tasmania provides family law assistance to eligible Tasmanians, prioritizing victims of family violence and matters involving children. Women's Legal Service Tasmania, Aboriginal legal services, and community legal centres across Hobart, Launceston, and regional Tasmania offer free advice and representation. Family violence duty lawyers assist family violence order applicants at court.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Government Links:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.communities.tas.gov.au/community_services/family-violence" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Government - Family Violence</a></li>
+          <li><a href="https://www.legalaid.tas.gov.au/family-law" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Legal Aid Tasmania - Family Law</a></li>
+          <li><a href="https://www.womenslegaltas.org.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Women's Legal Service Tasmania</a></li>
+          <li><a href="https://www.fvactionplan.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Safe Homes, Families, Communities Action Plan</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'criminal-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Criminal Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Criminal law in Tasmania operates under the Criminal Code Act 1924, one of Australia's oldest criminal codes. Tasmania has a comprehensive criminal justice system from the Magistrates Court through to the Supreme Court. If you're facing criminal charges in Tasmania, experienced legal representation is essential to protect your rights and achieve the best possible outcome.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Understanding Tasmanian Criminal Law</h3>
+      <p>
+        Tasmanian criminal lawyers defend clients charged with offences ranging from traffic matters to serious indictable crimes. The Magistrates Court handles summary offences and committal proceedings. The Supreme Court hears indictable offences including drug trafficking, serious assaults, sexual offences, and murder. Tasmania's criminal justice system emphasizes rehabilitation alongside punishment, with therapeutic courts and diversion programs available.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Common Criminal Matters</h3>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Drink Driving and Traffic Offences</h4>
+      <p>
+        Tasmania has strict drink driving laws with immediate licence suspensions. Offences include prescribed content of alcohol (.05 or more) and driving under the influence of alcohol or drugs. Special circumstances apply for learner and provisional licence holders. Dangerous driving causing death or injury carries substantial imprisonment. Extraordinary licences may be available for work or medical hardship. Traffic lawyers challenge testing procedures, apply for extraordinary licences, and minimize penalties.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Assault and Violence Offences</h4>
+      <p>
+        Tasmanian assault charges include common assault, assault causing bodily harm, causing grievous bodily harm, and wounding under the Criminal Code. Aggravated assaults (circumstances of aggravation including family violence, weapons, and vulnerable victims) carry enhanced penalties. Self-defence under section 46 Criminal Code requires reasonable belief that force was necessary and the force used was reasonable. Tasmanian courts consider rehabilitation prospects in sentencing.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Drug Offences</h4>
+      <p>
+        Tasmanian drug offences under the Misuse of Drugs Act 2001 include possession, trafficking, supply, and cultivation. Commercial quantities trigger presumptions and higher penalties. Tasmania's cautioning scheme diverts minor cannabis offenders (up to 50 grams) to counselling. The Drug Treatment Court provides intensive supervision and treatment for eligible offenders. Drug lawyers challenge search legality, contest trafficking presumptions, and pursue diversion or treatment options.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Fraud and White Collar Crime</h4>
+      <p>
+        Fraud in Tasmania includes stealing, fraud, and dishonest dealings under the Criminal Code. Tasmania Police's Criminal Investigation Branch investigates serious matters. Corporate fraud, ASIC prosecutions, and Centrelink fraud occur. Tasmanian courts consider restitution and cooperation in sentencing. Complex fraud requires specialist defence lawyers who understand financial transactions and corporate structures.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Sexual Offences</h4>
+      <p>
+        Sexual assault offences in Tasmania carry maximum penalties up to 21 years imprisonment for aggravated sexual assault. Child sexual abuse offences are prosecuted extensively. Complainant evidence can be given via CCTV or recorded statements. Sexual assault communications privilege protects confidential communications. Historical sexual assault prosecutions are common. Specialist criminal lawyers experienced in sexual offence trials are essential for proper defence.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Your Rights When Charged</h3>
+      <p>
+        Tasmanian law protects accused persons' rights. You have the right to silence, the right to contact a lawyer before police interview, and the right to refuse participation in identification procedures. Police must caution you before interview. Record of interview procedures must be followed. You're not required to provide anything beyond identifying information. Legal Aid Tasmania provides duty lawyer services at police stations and courts.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Court Process in Tasmania</h3>
+      <p>
+        Most criminal matters start at the Magistrates Court. Summary offences are finalized there. Indictable offences proceed to committal hearings before trial at Supreme Court. Tasmania's Drug Treatment Court provides intensive support and supervision as an alternative to imprisonment. Plea hearings involve detailed submissions on sentencing factors including rehabilitation prospects. Tasmanian courts emphasize restorative justice principles where appropriate.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Criminal Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Legal Aid Commission of Tasmania:</strong> 1300 366 611</li>
+          <li><strong>Aboriginal Legal Service Tasmania:</strong> 1800 066 019</li>
+          <li><strong>Law Society of Tasmania (Referrals):</strong> (03) 6234 4133</li>
+          <li><strong>Youth Legal Service:</strong> (03) 6236 3800</li>
+          <li><strong>Tasmania Police Assistance:</strong> 131 444</li>
+          <li><strong>Victims Support Services:</strong> 1300 300 238</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Sentencing in Tasmania</h3>
+      <p>
+        Tasmanian sentencing follows the Sentencing Act 1997. Penalties include dismissal or discharge, fines, community service orders, home detention, suspended sentences, and imprisonment. Guilty plea discounts apply for early pleas with up to 40% discount for very early pleas. Tasmanian courts emphasize rehabilitation, with therapeutic courts including Drug Treatment Court available. Character references, psychological reports, and rehabilitation evidence influence sentencing.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Criminal Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.justice.tas.gov.au/crime" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Government - Crime and Justice</a></li>
+          <li><a href="https://www.legalaid.tas.gov.au/criminal-law" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Legal Aid Tasmania - Criminal Law</a></li>
+          <li><a href="https://www.magistratescourt.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Magistrates Court of Tasmania</a></li>
+          <li><a href="https://www.supremecourt.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Supreme Court of Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'property-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Property Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Property law in Tasmania operates under the Land Titles Act 1980 (Torrens Title system), Conveyancing and Law of Property Act 1884, and numerous other statutes. Hobart and regional Tasmania's property markets have unique characteristics. Tasmanian property lawyers and conveyancers ensure smooth conveyancing, protect your interests, and navigate the state's property law framework.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Conveyancing in Tasmania</h3>
+      <p>
+        Tasmanian conveyancing involves contract exchange, cooling-off period (generally not applicable for most residential contracts), building and pest inspections, settlement, and registration through Land Titles Office Tasmania. Vendor disclosure requirements exist. Electronic conveyancing through PEXA operates in Tasmania. Stamp duty (transfer duty) applies with various concessions available. Searches reveal rates, planning, and title information. Conveyancers conduct most residential conveyancing in Tasmania.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Residential Property Transactions</h3>
+      <p>
+        Buying property in Tasmania typically uses the standard REIT (Real Estate Institute of Tasmania) contract. Building and pest inspections are strongly recommended. Most residential contracts don't provide cooling-off rights. Hobart's property market and regional Tasmania have unique considerations including heritage listings and rural properties. First home buyers can access stamp duty concessions and grants for properties meeting eligibility criteria.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">First Home Buyers in Tasmania</h4>
+      <p>
+        Tasmania offers first home buyer concessions including stamp duty exemptions for properties up to $400,000 and concessions up to $600,000. The First Home Owner Grant provides $20,000 for newly built homes (or $30,000 for new homes built in Tasmania). Additional benefits apply for builds in regional Tasmania. Conveyancers and property lawyers ensure you receive all available concessions and proper contract protections.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Commercial Property</h3>
+      <p>
+        Tasmanian commercial property transactions involve due diligence on leases, environmental issues, GST, and business operations. Commercial leases require careful negotiation. Hobart CBD commercial property has unique considerations including heritage requirements. Commercial property lawyers conduct comprehensive due diligence and negotiate favorable terms.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Leasing and Tenancy</h3>
+      <p>
+        Tasmania's Residential Tenancy Act 1997 governs residential tenancies. The Residential Tenancy Commissioner and Magistrates Court resolve tenancy disputes including bond claims, repairs, and termination. Recent reforms provide tenant protections including minimum housing standards. The Fair Trading (Code of Practice for Retail Leases) Regulations 1998 govern retail leases requiring disclosure.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Strata Titles</h3>
+      <p>
+        Tasmania's Strata Titles Act 1998 governs apartments and townhouses. Strata corporations manage common property, levy collection, and by-law enforcement. Strata certificates disclose financial position, by-laws, major works, and disputes. Building defects are addressed through building regulations and warranties. The Magistrates Court resolves strata disputes including by-law breaches and building defects.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Property Development</h3>
+      <p>
+        Property development in Tasmania requires planning approval under the Land Use Planning and Approvals Act 1993. Local councils assess development applications against planning schemes. The Tasmanian Planning Commission hears major project applications. The Resource Management and Planning Appeal Tribunal hears planning appeals. Heritage considerations, environmental impacts, and coastal development require specific assessment. Planning lawyers coordinate applications, appeals, and compliance.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Property Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>State Revenue Office Tasmania (Stamp Duty):</strong> 1300 135 513</li>
+          <li><strong>Consumer, Building and Occupational Services:</strong> 1300 654 499</li>
+          <li><strong>Land Titles Office Tasmania:</strong> (03) 6165 4100</li>
+          <li><strong>Residential Tenancy Commissioner:</strong> 1300 654 499</li>
+          <li><strong>Tasmanian Planning Commission:</strong> (03) 6165 6828</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Property Disputes</h3>
+      <p>
+        Property disputes in Tasmania include boundary disputes, easements, caveats, breach of contract, building defects, and strata conflicts. The Magistrates Court handles tenancy and smaller property disputes. The Supreme Court handles complex property litigation. The Resource Management and Planning Appeal Tribunal hears planning disputes. The Boundary Fences Act 1908 governs fencing disputes. Experienced property lawyers resolve disputes through negotiation or litigation.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Property Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.cbos.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Consumer, Building and Occupational Services</a></li>
+          <li><a href="https://www.sro.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">State Revenue Office Tasmania</a></li>
+          <li><a href="https://www.propertyservices.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Land Titles Office Tasmania</a></li>
+          <li><a href="https://www.planningreform.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Planning Reform</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'wills-estates': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Wills and Estates Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Wills and estates law in Tasmania is governed by the Wills Act 2008, Administration and Probate Act 1935, and Guardianship and Administration Act 1995. Proper estate planning protects your assets, provides for loved ones, and minimizes disputes. Tasmanian wills and estates lawyers provide comprehensive advice on succession planning, estate administration, and contesting wills.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Will Drafting in Tasmania</h3>
+      <p>
+        A valid Tasmanian will must be in writing, signed by the testator, and witnessed by two independent witnesses who sign in the testator's presence. Informal wills can be admitted to probate in limited circumstances under section 11 Wills Act. Professional will drafting addresses blended families, business succession, asset protection, and tax planning. Testamentary trusts protect beneficiaries from bankruptcy, relationship breakdowns, and provide tax benefits. Regular reviews ensure wills reflect changed circumstances.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Estate Planning Strategies</h3>
+      <p>
+        Comprehensive estate planning in Tasmania includes wills, enduring powers of attorney, enduring guardianship, advance care directives, and superannuation binding death benefit nominations. Proper planning minimizes family provision claims, provides for disabled beneficiaries through special disability trusts, and structures inheritances for asset protection. Tasmanian considerations include rural properties, family businesses, and fishing licenses.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Probate and Estate Administration</h3>
+      <p>
+        Probate is the Supreme Court's grant of representation to executors. Tasmanian executors must collect assets, pay debts, lodge tax returns, and distribute to beneficiaries according to the will. Small estates under certain thresholds may not require formal probate. The process involves obtaining death certificate, locating the will, identifying assets and liabilities, obtaining valuations, and preparing estate accounts. Lawyers ensure executors comply with duties and protect against personal liability.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Intestacy in Tasmania</h4>
+      <p>
+        When someone dies without a valid will, intestacy rules under Part III Administration and Probate Act determine distribution. Spouses receive priority with provisions for children. The intestacy formula considers family composition. De facto partners have the same rights as married spouses. The Public Trustee may be appointed administrator if no family applies. Intestacy often results in unintended outcomes and family disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Contesting Wills and Family Provision Claims</h3>
+      <p>
+        Tasmania's family provision regime under the Testator's Family Maintenance Act 1912 allows eligible persons to apply for greater provision from an estate. Eligible persons include spouses, children (including adult children), domestic partners, and certain dependents. Applications must be filed within three months of probate grant (or six months of death if no grant). Tasmanian courts consider financial resources, health, relationship with deceased, contributions, and provision made. Successful claims significantly alter distributions.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Powers of Attorney</h3>
+      <p>
+        Tasmania recognizes enduring powers of attorney under the Powers of Attorney Act 2000. Enduring powers of attorney cover financial and property matters and continue after loss of capacity. General powers of attorney cease on loss of capacity. Enduring powers must be properly executed with prescribed witnesses. Attorneys must act in the principal's best interests, keep proper accounts, and avoid conflicts of interest. The Guardianship and Administration Board reviews attorney conduct.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Enduring Guardianship and Advance Care Directives</h3>
+      <p>
+        Tasmania's Guardianship and Administration Act 1995 provides for enduring guardianship appointments for personal and lifestyle decisions. Advance care directives document your health care preferences under the Advance Care Directives Act 2013. Enduring guardians and advance care directives must be properly executed with witnesses. The Guardianship and Administration Board can appoint guardians if you lose capacity without valid appointments.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Wills & Estates Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Supreme Court of Tasmania (Probate):</strong> (03) 6165 7333</li>
+          <li><strong>Public Trustee Tasmania:</strong> 1800 068 784</li>
+          <li><strong>Office of the Public Guardian:</strong> 1300 799 625</li>
+          <li><strong>Legal Aid Tasmania:</strong> 1300 366 611</li>
+          <li><strong>Law Society of Tasmania:</strong> (03) 6234 4133</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Guardianship and Administration</h3>
+      <p>
+        The Guardianship and Administration Board appoints guardians for personal decisions and administrators for financial decisions when adults lose capacity without valid appointments. The Public Trustee or private administrators may be appointed. The Board reviews decisions and protects vulnerable adults from abuse. Applications are accessible with the Board operating less formally than courts. Guardianship lawyers represent parties in appointment and review applications.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Wills & Estates Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.justice.tas.gov.au/wills-and-estates" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Government - Wills and Estates</a></li>
+          <li><a href="https://www.publictrustee.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Public Trustee Tasmania</a></li>
+          <li><a href="https://www.publicguardian.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Office of the Public Guardian</a></li>
+          <li><a href="https://www.guardianship.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Guardianship and Administration Board</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'employment-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Employment Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Employment law in Tasmania operates primarily under federal legislation including the Fair Work Act 2009, with state-based workers compensation and workplace safety laws. Tasmania has employment law resources including the Fair Work Commission, WorkSafe Tasmania, and the Tasmanian Workers Rehabilitation and Compensation Tribunal. Employment lawyers protect employee and employer rights in this complex regulatory environment.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Understanding Employment Law in Tasmania</h3>
+      <p>
+        Most Tasmanian employment matters fall under the federal Fair Work system covering minimum wages, working conditions, unfair dismissal, and general protections. However, Tasmanian state laws govern workers compensation under the Workers Rehabilitation and Compensation Act 1988, workplace safety under the Work Health and Safety Act 2012, and certain state public sector employment. The Tasmanian Industrial Commission has limited jurisdiction for state system employees.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Unfair Dismissal Claims</h3>
+      <p>
+        Employees dismissed from employment may file unfair dismissal applications with the Fair Work Commission if they've served the minimum employment period (six months for small businesses, 12 months otherwise) and earn below the high income threshold. Applications must be lodged within 21 days of dismissal. Tasmanian employment lawyers assess dismissal fairness, prepare applications, and represent clients at conciliation conferences and hearings. Remedies include reinstatement or compensation up to six months' wages.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">General Protections Claims</h4>
+      <p>
+        General protections prohibit adverse action for exercising workplace rights, union membership, discrimination, or sham contracting. These claims have 60-day time limits but can result in uncapped compensation. Tasmania has significant case law on general protections particularly regarding workplace discrimination. Anti-bullying applications can be made to Fair Work Commission while still employed.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Workplace Discrimination and Harassment</h3>
+      <p>
+        Tasmania's Anti-Discrimination Act 1998 prohibits discrimination based on protected attributes including age, race, sex, sexual orientation, gender identity, disability, marital status, family responsibilities, pregnancy, and industrial activity. Equal Opportunity Tasmania investigates complaints and attempts conciliation. Unresolved matters proceed to the Tasmanian Civil and Administrative Tribunal (TasCAT). Sexual harassment and workplace bullying protections apply.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Employment Contracts and Agreements</h3>
+      <p>
+        Employment lawyers review and draft employment contracts, executive service agreements, restraint of trade clauses, confidentiality agreements, and enterprise agreements. Tasmanian courts enforce restraint of trade clauses where they protect legitimate business interests and are reasonable. Post-employment restraints are enforceable where properly drafted and reasonable in scope and duration.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Workers' Compensation</h3>
+      <p>
+        WorkSafe Tasmania administers workers compensation for Tasmanian workers under the Workers Rehabilitation and Compensation Act 1988. Claims cover medical expenses, weekly payments, permanent impairment benefits, and common law damages where serious injury occurred due to employer negligence. The serious injury threshold requires permanent impairment of 30% or more. Time limits apply - workers compensation claims should be lodged promptly, common law claims within three years. Lawyers maximize both statutory and common law entitlements.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Redundancy and Restructuring</h3>
+      <p>
+        Genuine redundancy requires the position to no longer exist. Large-scale redundancies may require consultation under Fair Work Act provisions. Redundancy pay depends on years of service. Tasmanian employees can challenge sham redundancies or unfair selection processes. State government and private sector restructures create redundancy issues. Employment lawyers ensure proper processes and maximum entitlements.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Employment Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Fair Work Commission:</strong> 1300 799 675</li>
+          <li><strong>Fair Work Ombudsman:</strong> 13 13 94</li>
+          <li><strong>Equal Opportunity Tasmania:</strong> 1300 305 062</li>
+          <li><strong>WorkSafe Tasmania:</strong> 1300 366 322</li>
+          <li><strong>Workers Rehabilitation and Compensation Tribunal:</strong> (03) 6166 4690</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Workplace Safety and Bullying</h3>
+      <p>
+        WorkSafe Tasmania enforces Tasmania's Work Health and Safety Act 2012, including psychosocial hazards and workplace bullying. Tasmanian employers must provide safe systems of work and address workplace bullying. The Fair Work Commission handles workplace bullying applications. Workers compensation claims for psychological injury from workplace bullying are common. Employment lawyers advise on prevention, responding to complaints, and defending claims.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Employment Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.fairwork.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Fair Work Ombudsman</a></li>
+          <li><a href="https://equalopportunity.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Equal Opportunity Tasmania</a></li>
+          <li><a href="https://worksafe.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">WorkSafe Tasmania</a></li>
+          <li><a href="https://www.justice.tas.gov.au/tascattribunal" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">TasCAT</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'personal-injury': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Personal Injury Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Personal injury law in Tasmania helps victims of accidents and negligence obtain compensation. Tasmania operates comprehensive compensation schemes including compulsory third party (CTP) insurance for motor accidents, WorkCover Tasmania for workplace injuries, and common law claims for public liability and medical negligence. Experienced Tasmanian personal injury lawyers navigate these schemes to maximize your compensation.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Motor Vehicle Accidents</h3>
+      <p>
+        Tasmania's Motor Accidents (Liabilities and Compensation) Act 1973 provides compulsory third party insurance compensation for injuries in motor accidents. CTP claims provide damages for medical expenses, loss of earnings, future care, pain and suffering, and economic loss where fault is established. The fault-based system requires proving negligence. Claims must be lodged within three years. Pre-litigation procedures including offers to settle are required.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">CTP Claims Process</h4>
+      <p>
+        CTP claims in Tasmania require proving fault through negligence. Claims involve notifying the insurer, gathering medical evidence, establishing liability, and negotiating settlement or proceeding to court. Personal injury lawyers conduct thorough investigations, obtain expert evidence, and maximize compensation. The Supreme Court and Magistrates Court hear CTP claims depending on value.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Medical Negligence</h3>
+      <p>
+        Medical negligence claims in Tasmania arise from substandard medical care causing injury. This includes misdiagnosis, surgical errors, medication mistakes, birth injuries, and failure to obtain informed consent. Public hospitals are covered by the State, while private practitioners have professional indemnity insurance. Common law negligence principles apply. Expert medical evidence is essential. Time limits are generally three years from awareness of negligence.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Public Liability Claims</h3>
+      <p>
+        Public liability claims compensate injuries on another person's property or due to their negligence. Common claims include slip and fall in shopping centres, council property injuries, and defective products. Common law negligence requires proving breach of duty of care and causation. Contributory negligence reduces compensation if you were partly at fault. Dangerous recreational activities may have limited liability under the Civil Liability Act 2002. Personal injury lawyers investigate liability and negotiate with insurers.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Workers Compensation Claims</h3>
+      <p>
+        Tasmanian workers injured at work claim workers compensation through WorkSafe Tasmania for medical expenses, weekly payments, and permanent impairment benefits. For serious injuries caused by employer negligence (30% or more permanent impairment), common law damages claims provide substantially higher compensation. Time limits are strict - workers compensation claims should be lodged immediately, common law claims within three years. Specialist lawyers assess both statutory and common law entitlements.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Total and Permanent Disability (TPD)</h3>
+      <p>
+        TPD insurance, typically held through superannuation, pays lump sum benefits when unable to work due to injury or illness. Tasmanian TPD claims are common, with insurers frequently denying legitimate claims. Disputes involve medical evidence, policy interpretation, and TPD definitions. The Australian Financial Complaints Authority (AFCA) handles complaints. TPD lawyers represent claimants through the claims and appeals process.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Dust Diseases and Asbestos</h3>
+      <p>
+        Tasmanian workers exposed to asbestos, silica, or other harmful dusts can develop serious diseases decades later. Asbestos-related diseases including mesothelioma, asbestosis, and asbestos-related lung cancer have special compensation provisions. WorkCover Tasmania administers workers compensation for dust diseases. Common law claims against former employers and asbestos product manufacturers provide additional compensation. Specialist asbestos lawyers trace exposure history.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Personal Injury Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>WorkSafe Tasmania:</strong> 1300 366 322</li>
+          <li><strong>Health Complaints Commissioner:</strong> 1800 001 170</li>
+          <li><strong>Legal Aid Tasmania:</strong> 1300 366 611</li>
+          <li><strong>Workers Rehabilitation and Compensation Tribunal:</strong> (03) 6166 4690</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Dispute Resolution</h3>
+      <p>
+        Personal injury disputes in Tasmania are resolved through negotiation, mediation, or court proceedings. Workers compensation disputes proceed through the Workers Rehabilitation and Compensation Tribunal. Medical panels determine impairment assessments. The Supreme Court and Magistrates Court hear personal injury litigation. Personal injury lawyers guide clients through dispute resolution processes.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Personal Injury Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://worksafe.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">WorkSafe Tasmania</a></li>
+          <li><a href="https://www.healthcomplaints.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Health Complaints Commissioner</a></li>
+          <li><a href="https://www.legalaid.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Legal Aid Tasmania</a></li>
+          <li><a href="https://www.justice.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Government - Justice</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'business-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Business Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Business law in Tasmania encompasses corporate law, commercial contracts, mergers and acquisitions, and regulatory compliance. Hobart is Tasmania's business centre with strong tourism, agriculture, aquaculture, forestry, and advanced manufacturing sectors. Tasmanian business lawyers advise on business formation, operations, transactions, and disputes to help businesses succeed while managing legal risks.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Business Formation and Structure</h3>
+      <p>
+        Choosing the right business structure is crucial. Options include sole trader, partnership, trust, or company. Companies are regulated by ASIC under the Corporations Act 2001. Tasmanian lawyers advise on tax implications, asset protection, liability, succession planning, and compliance requirements. Company incorporation involves registration with ASIC, constitution drafting, shareholder agreements, and compliance frameworks. Family businesses including farms and tourism operations often use trust structures.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Commercial Contracts</h3>
+      <p>
+        Commercial contracts underpin Tasmanian businesses. Common contracts include supply agreements, distribution agreements, service agreements, licensing, tourism contracts, and aquaculture agreements. The Australian Consumer Law imposes mandatory guarantees and unfair contract term prohibitions. Lawyers draft, review, and negotiate contracts protecting your business interests and ensuring enforceability.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Franchising</h4>
+      <p>
+        Franchising in Tasmania is regulated by the Franchising Code of Conduct requiring comprehensive disclosure before franchise sale. Franchisors must provide disclosure documents, financial information, and cooling-off periods. Tasmanian franchise disputes are handled by Federal Court and Supreme Court. Specialist franchise lawyers represent franchisors and franchisees in disputes and transactions.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Mergers and Acquisitions</h3>
+      <p>
+        Business acquisitions in Tasmania involve due diligence, contract negotiation, regulatory approvals, and completion. Due diligence examines financial records, contracts, litigation, intellectual property, employment, and tax. Tasmanian business acquisitions may involve tourism operations, agricultural businesses, or aquaculture ventures. Share sales transfer ownership of the company entity. Asset sales transfer specific business assets. Corporate lawyers coordinate complex acquisitions.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Partnership and Shareholder Agreements</h3>
+      <p>
+        Partnership agreements govern business partnerships under the Partnership Act 1891 (Tas). Shareholder agreements regulate relationships between company shareholders addressing management, share transfers, dispute resolution, and exit strategies. Buy-sell provisions, drag-along and tag-along rights, and valuation mechanisms prevent deadlocks. Tasmanian courts handle partnership and shareholder disputes including oppression claims under section 232 Corporations Act. Proper agreements prevent costly disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Commercial Disputes</h3>
+      <p>
+        Tasmanian businesses face disputes including contract breaches, partnership disputes, shareholder disputes, trade practices claims, and debt recovery. TasCAT handles smaller commercial matters. The Supreme Court hears larger disputes. Mediation and arbitration provide alternatives to litigation. Business lawyers resolve disputes efficiently through negotiation, alternative dispute resolution, or court proceedings when necessary.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Business Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Australian Securities and Investments Commission (ASIC):</strong> 1300 300 630</li>
+          <li><strong>Business Tasmania:</strong> 1800 440 026</li>
+          <li><strong>Consumer, Building and Occupational Services:</strong> 1300 654 499</li>
+          <li><strong>Australian Competition and Consumer Commission:</strong> 1300 302 502</li>
+          <li><strong>Tasmanian Chamber of Commerce and Industry:</strong> (03) 6236 3600</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Regulatory Compliance</h3>
+      <p>
+        Tasmanian businesses must comply with extensive regulation including Australian Consumer Law, workplace relations laws, privacy laws, taxation laws, and industry-specific regulation. Directors have statutory duties including duty of care, duty to prevent insolvent trading, and duty to avoid conflicts. ASIC enforces corporate regulation. Consumer, Building and Occupational Services regulates various industries. Business lawyers ensure regulatory compliance and defend investigations.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Business Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.business.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Business Tasmania</a></li>
+          <li><a href="https://www.cbos.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Consumer, Building and Occupational Services</a></li>
+          <li><a href="https://www.tcci.com.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Chamber of Commerce and Industry</a></li>
+          <li><a href="https://asic.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">ASIC</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'immigration-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Immigration Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Immigration law in Tasmania operates under federal legislation including the Migration Act 1958 and Migration Regulations. Tasmania attracts skilled migrants, international students, family migrants, and business migrants. Tasmania's state nomination program provides pathways to permanent residence. Registered migration agents and immigration lawyers guide applicants through complex visa processes and represent clients in tribunals and courts.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Visa Categories</h3>
+      <p>
+        Australia's visa system includes temporary visas (visitor, student, temporary work) and permanent visas (skilled, family, business). Tasmania's state nomination program for skilled migrants targets occupations in demand including healthcare, education, trades, agriculture, and hospitality. Tasmania offers migration pathways with lower requirements than major cities as a regional destination. Visa applications require meeting health, character, and specific visa criteria.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Skilled Migration</h4>
+      <p>
+        Skilled migration to Tasmania includes independent skilled visas, state-nominated visas, and employer-sponsored visas. Tasmania's state nomination program provides pathways for occupations on the state's skilled occupation list. Points-tested visas require meeting points threshold through age, English, qualifications, and work experience. Regional classification provides additional migration benefits. Skills assessments verify qualifications meet Australian standards. Tasmania offers pathways for existing residents, job offers, and small business owners.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Family Migration</h3>
+      <p>
+        Partner visas allow Australian citizens, permanent residents, and eligible New Zealand citizens to sponsor spouses and de facto partners. Prospective marriage visas require intent to marry within nine months. Parent visas have long waiting periods with contributory options providing faster processing. Child visas and remaining relative visas complete family migration categories. Tasmania's growing population supports family reunification.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Business and Investment Migration</h3>
+      <p>
+        Business Innovation and Investment visas attract entrepreneurs and investors to Tasmania. The Business Innovation stream requires successful business experience and genuine intention to operate Tasmanian business. Investor streams require designated investments in Australian assets. Tasmania's state nomination program prioritizes genuine business establishment in growth sectors including agriculture, tourism, and advanced manufacturing. Business advisers assist migrant entrepreneurs.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Student Visas</h3>
+      <p>
+        Tasmania's universities and colleges attract international students. Student visas require enrollment in registered courses, sufficient funds, health insurance, and genuine temporary entrant requirements. Post-study work visas allow graduates to gain Australian work experience. Regional classification provides additional visa benefits. Visa conditions restrict work hours during studies. Education agents and migration lawyers assist with visa applications and compliance.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Citizenship</h3>
+      <p>
+        Australian citizenship requires permanent residence, residency period (usually four years including 12 months as permanent resident), good character, and knowledge of Australia. Citizenship confers voting rights, passport eligibility, and government employment access. Children born in Australia to permanent residents or citizens are usually Australian citizens. Citizenship by descent applies to children born overseas to Australian citizen parents.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Visa Refusals and Cancellations</h3>
+      <p>
+        Visa refusals and cancellations can be reviewed by the Administrative Review Tribunal (ART, formerly AAT). Character cancellations under section 501 Migration Act affect visa holders with criminal records. Direction 99 guides decision-makers on character cancellations considering family ties and community protection. Federal Circuit and Family Court and Federal Court hear judicial review applications. Immigration lawyers represent clients in tribunal and court proceedings.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Immigration Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Department of Home Affairs:</strong> 131 881</li>
+          <li><strong>Administrative Review Tribunal:</strong> 1800 228 333</li>
+          <li><strong>Refugee Council of Australia:</strong> (02) 9211 9333</li>
+          <li><strong>Multicultural Council of Tasmania:</strong> (03) 6221 0999</li>
+          <li><strong>Migration Agents Registration Authority:</strong> (07) 3360 3888</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Deportation and Removal</h3>
+      <p>
+        Unlawful non-citizens face detention and removal from Australia. Visa cancellations for character or compliance reasons result in removal. Ministerial intervention under sections 48B, 351, or 417 provides last resort options. Bridging visas allow lawful stay while matters are resolved. Detention reviews are available through the Administrative Review Tribunal. Immigration lawyers urgently respond to detention and deportation matters.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Immigration Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.homeaffairs.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Department of Home Affairs</a></li>
+          <li><a href="https://www.aat.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Administrative Review Tribunal</a></li>
+          <li><a href="https://www.migration.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Migration Tasmania</a></li>
+          <li><a href="https://www.studytas.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Study Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'litigation': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Litigation in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Litigation in Tasmania encompasses civil and commercial disputes resolved through courts and tribunals. Tasmania's court system includes the Magistrates Court, Supreme Court, and specialized tribunals. Effective litigation requires strategic advice, thorough preparation, and skilled advocacy. Tasmanian litigation lawyers represent clients in all forums, from small claims to complex commercial disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Tasmanian Court System</h3>
+      <p>
+        Tasmania's Magistrates Court handles civil claims up to $50,000 and criminal summary matters. The Supreme Court has unlimited civil jurisdiction and hears indictable criminal offences. The Tasmanian Civil and Administrative Tribunal (TasCAT) provides accessible dispute resolution for administrative, tenancy, anti-discrimination, and other matters. The Federal Circuit and Family Court and Federal Court operate in Hobart for federal matters.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Civil Litigation</h3>
+      <p>
+        Civil litigation includes contract disputes, negligence claims, property disputes, and debt recovery. Tasmanian civil procedure follows court rules emphasizing case management, proportionality, and alternative dispute resolution. Pre-action protocols encourage early resolution. Discovery, expert evidence, and interlocutory applications require compliance with rules and practice directions.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Commercial Litigation</h4>
+      <p>
+        Commercial litigation involves business disputes including contract breaches, shareholder disputes, partnership disputes, and trade practices. The Supreme Court handles commercial matters with case management procedures. Freezing orders, search orders, and security for costs protect parties' positions. Litigation lawyers strategically manage disputes to achieve commercial outcomes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Alternative Dispute Resolution</h3>
+      <p>
+        Mediation and arbitration offer alternatives to court litigation. Tasmanian courts encourage mediation in many matters. Private mediators and arbitrators resolve disputes confidentially and efficiently. Arbitration awards are enforceable like court judgments. Expert determination resolves technical disputes. ADR reduces costs and provides flexible outcomes. Lawyers advise on ADR suitability and represent clients in ADR processes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Debt Recovery</h3>
+      <p>
+        Debt recovery through Tasmanian courts involves issuing proceedings, default judgments, or defended hearings. Judgment enforcement includes garnishee orders, instalment orders, warrants of execution, and examination summonses. Bankruptcy and winding up proceedings pressure debtors to pay. Tasmanian debt collection laws protect debtors from harassment. Creditors' lawyers strategically recover debts while managing costs and risks.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Building and Construction Disputes</h3>
+      <p>
+        Building disputes in Tasmania involve defective work, cost overruns, delays, and payment disputes. The Building Act 2016 regulates building work. Security of payment legislation under the Building and Construction Industry (Security of Payment) Act 2009 provides rapid adjudication of payment claims. Consumer, Building and Occupational Services investigates builder conduct. TasCAT and courts resolve building disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Defamation</h3>
+      <p>
+        Defamation in Tasmania involves publication of material harming reputation. The Defamation Act 2005 provides uniform national defamation law. Defences include truth, honest opinion, and qualified privilege. Offers to make amends can resolve matters early. Concerns notices and limitation periods require prompt action. Social media defamation is increasingly common. Supreme Court handles defamation proceedings. Defamation lawyers advise publishers and plaintiffs on rights and risks.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Litigation Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Supreme Court of Tasmania:</strong> (03) 6165 7333</li>
+          <li><strong>Magistrates Court of Tasmania:</strong> 1300 366 322</li>
+          <li><strong>Tasmanian Civil and Administrative Tribunal:</strong> (03) 6165 6968</li>
+          <li><strong>Law Society of Tasmania:</strong> (03) 6234 4133</li>
+          <li><strong>Legal Aid Tasmania:</strong> 1300 366 611</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Costs and Funding</h3>
+      <p>
+        Tasmanian litigation costs follow the principle that unsuccessful parties pay winners' costs. Security for costs may be ordered against plaintiffs. Costs disclosure obligations require lawyers to inform clients of likely costs. No win, no fee arrangements are available for some matters. Litigation funding provides financial support for claims in exchange for success fees. Tasmanian courts scrutinize disproportionate costs. Lawyers provide realistic cost estimates and strategic advice on litigation economics.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Litigation Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.supremecourt.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Supreme Court of Tasmania</a></li>
+          <li><a href="https://www.magistratescourt.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Magistrates Court of Tasmania</a></li>
+          <li><a href="https://www.justice.tas.gov.au/tascattribunal" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">TasCAT</a></li>
+          <li><a href="https://www.legalaid.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Legal Aid Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'bankruptcy-insolvency': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Bankruptcy and Insolvency in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Bankruptcy and insolvency law in Tasmania helps individuals and companies facing financial difficulties. The Bankruptcy Act 1966 governs personal insolvency, while the Corporations Act 2001 governs corporate insolvency. Tasmania has experienced insolvency practitioners and lawyers who advise on bankruptcy alternatives, restructuring, and formal insolvency processes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Personal Bankruptcy</h3>
+      <p>
+        Bankruptcy is a formal process where an individual is declared unable to pay debts. Bankruptcy can be voluntary (debtor's petition) or involuntary (creditor's petition). A trustee takes control of assets, realizes them, and distributes to creditors. Bankruptcy typically lasts three years. During bankruptcy, travel restrictions apply, credit reporting continues for five years, and certain assets are protected including household items, tools of trade, and some superannuation. Bankruptcy discharges most debts excluding child support, HECS, and fraud debts.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Alternatives to Bankruptcy</h4>
+      <p>
+        Debt agreements under Part IX Bankruptcy Act allow debtors to propose reduced payment arrangements to creditors avoiding bankruptcy. Personal insolvency agreements (Part X) provide flexible arrangements for higher-value estates. Informal arrangements negotiate payment plans with creditors. These alternatives avoid bankruptcy's consequences while addressing debt. Tasmanian insolvency practitioners assess options and implement solutions. Early advice maximizes options and prevents forced bankruptcy.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Corporate Insolvency</h3>
+      <p>
+        Companies facing insolvency have several options. Voluntary administration under Part 5.3A Corporations Act provides breathing space while administrators investigate rescue prospects. Creditors vote on proposals including deeds of company arrangement. Liquidation winds up companies and distributes assets to creditors. Receivers can be appointed by secured creditors. Directors facing insolvent trading allegations face personal liability. Early advice prevents wrongful trading and maximizes restructuring options.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Liquidation</h3>
+      <p>
+        Liquidation ends company existence through voluntary liquidation (members' or creditors') or court-ordered winding up. Liquidators realize assets, investigate company affairs, and distribute to creditors according to priority. Employees rank ahead of unsecured creditors for wages and entitlements. Liquidators pursue voidable transactions including unfair preferences and uncommercial transactions. ASIC regulates liquidators. Creditors receive dividends if assets remain after secured and priority creditors.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Voluntary Administration</h3>
+      <p>
+        Voluntary administration provides companies with temporary protection from creditors while exploring rescue options. Administrators investigate company affairs and report to creditors on prospects of saving business. Creditors vote on proposals including deeds of company arrangement, liquidation, or returning company to directors. Tasmanian administrators work with directors, creditors, and employees to achieve optimal outcomes. Administration can result in successful restructuring saving businesses and jobs.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Creditors' Rights</h3>
+      <p>
+        Creditors can initiate bankruptcy or winding up proceedings to recover debts. Statutory demands under section 459E Corporations Act require companies to pay debts or face presumed insolvency. Creditors lodge proofs of debt in administrations and liquidations. Committees of inspection represent creditor interests. Creditors can challenge administrators' and liquidators' decisions. Security interests under the Personal Property Securities Act provide priority. Insolvency lawyers represent creditors maximizing recoveries.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Bankruptcy & Insolvency Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Australian Financial Security Authority:</strong> 1300 364 785</li>
+          <li><strong>ASIC Insolvency Practitioners:</strong> 1300 300 630</li>
+          <li><strong>National Debt Helpline:</strong> 1800 007 007</li>
+          <li><strong>Financial Counselling Tasmania:</strong> 1800 007 007</li>
+          <li><strong>Business Tasmania:</strong> 1800 440 026</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Directors' Duties and Insolvent Trading</h3>
+      <p>
+        Directors must prevent insolvent trading - incurring debts when company cannot pay them. Section 588G Corporations Act imposes personal liability on directors for insolvent trading. Safe harbour protections apply when directors develop and implement restructuring plans. The business judgment rule protects informed, good faith decisions. ASIC prosecutes serious director breaches. Tasmanian insolvency lawyers advise directors on duties, safe harbour, and defending claims.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Bankruptcy & Insolvency Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.afsa.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Australian Financial Security Authority</a></li>
+          <li><a href="https://asic.gov.au/regulatory-resources/insolvency/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">ASIC Insolvency Information</a></li>
+          <li><a href="https://www.arita.com.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">ARITA - Australian Restructuring Insolvency & Turnaround Association</a></li>
+          <li><a href="https://www.business.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Business Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'intellectual-property': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Intellectual Property Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Intellectual property law protects creations of the mind including inventions, brands, designs, and creative works. Tasmania's innovation economy, particularly in aquaculture technology, clean energy, advanced manufacturing, agriculture, and creative industries, makes IP protection important. Tasmanian IP lawyers advise on registration, protection, commercialization, and enforcement of intellectual property rights.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Trademarks</h3>
+      <p>
+        Trademarks protect brand names, logos, and other identifiers under the Trade Marks Act 1995. Registration with IP Australia provides exclusive rights to use marks for registered goods and services. Tasmanian businesses should conduct searches before adoption, register in relevant classes, and monitor for infringement. Trademark protection prevents consumer confusion and protects brand investment. Opposition and cancellation proceedings defend trademark rights. Lawyers advise on selection, registration, and enforcement.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Copyright</h3>
+      <p>
+        Copyright automatically protects original works including literary works, artistic works, music, films, sound recordings, and broadcasts under the Copyright Act 1968. Protection lasts life of author plus 70 years. Copyright protects expression, not ideas. Fair dealing exceptions allow limited use for research, criticism, and news reporting. Digital copyright issues are increasingly important. Copyright assignment and licensing agreements commercialize works. Infringement remedies include damages, accounts of profits, and injunctions.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Patents</h3>
+      <p>
+        Patents protect inventions that are novel, inventive, and useful under the Patents Act 1990. Standard patents last 20 years; innovation patents (abolished 2021 for new applications) lasted 8 years. The patent process involves search, application, examination, and grant. Provisional applications establish priority for 12 months. Tasmanian innovation in aquaculture technology, clean energy, agricultural innovation, and advanced manufacturing generates patent activity. Patent lawyers conduct searches, draft specifications, prosecute applications, and enforce patents.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Designs</h3>
+      <p>
+        Registered designs protect visual appearance of products including shape, configuration, pattern, and ornamentation under the Designs Act 2003. Protection lasts up to 10 years. Designs must be new and distinctive. Registration is relatively quick and affordable. Product designers and manufacturers should register designs before public disclosure. Design infringement involves making, importing, or selling products embodying registered designs. Tasmanian product design industries benefit from design protection.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Trade Secrets and Confidential Information</h3>
+      <p>
+        Trade secrets protect confidential business information including formulas, processes, customer lists, and know-how. Unlike registered IP rights, trade secrets rely on maintaining secrecy. Breach of confidence claims prevent unauthorized disclosure or use. Employment contracts and non-disclosure agreements protect confidential information. Tasmanian businesses protect trade secrets through contracts and security measures. Courts grant injunctions preventing disclosure and damages for breaches.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">IP Commercialization</h3>
+      <p>
+        IP commercialization includes licensing, assignment, and joint ventures. Licensing agreements grant rights to use IP while retaining ownership. Exclusive licenses provide sole licensee rights; non-exclusive licenses permit multiple licensees. Royalty structures compensate IP owners. Due diligence examines IP ownership and validity. R&D tax incentives support Tasmanian innovation. IP lawyers negotiate and draft commercialization agreements maximizing value while protecting rights.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian IP Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>IP Australia:</strong> 1300 65 10 10</li>
+          <li><strong>Copyright Agency:</strong> 1800 066 844</li>
+          <li><strong>Australian Copyright Council:</strong> (02) 8815 9777</li>
+          <li><strong>Law Society of Tasmania (IP Referrals):</strong> (03) 6234 4133</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">IP Enforcement</h3>
+      <p>
+        IP infringement is enforced through Federal Court proceedings. Remedies include injunctions, damages, accounts of profits, and delivery up of infringing goods. Australian Border Force can seize counterfeit imports. Anton Piller orders (search orders) preserve evidence. Cease and desist letters often resolve matters without litigation. Tasmanian IP owners should actively monitor and enforce rights. Lawyers advise on infringement, conduct negotiations, and litigate when necessary.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian IP Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.ipaustralia.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">IP Australia</a></li>
+          <li><a href="https://www.copyright.org.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Australian Copyright Council</a></li>
+          <li><a href="https://ipta.org.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Intellectual Property Society of Australia and New Zealand</a></li>
+          <li><a href="https://www.business.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Business Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'tax-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Tax Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Tax law in Tasmania encompasses federal taxation administered by the Australian Taxation Office and state taxes administered by the State Revenue Office Tasmania. Tasmanian tax lawyers advise individuals and businesses on tax planning, compliance, disputes, and restructuring to minimize tax liabilities and resolve ATO disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Income Tax</h3>
+      <p>
+        Income tax applies to individuals, companies, trusts, and superannuation funds under federal tax law. Tasmanian taxpayers face the same income tax rates as other Australians. Tax planning includes structuring income, maximizing deductions, timing transactions, and utilizing concessions. Small business CGT concessions provide significant relief for business asset sales. Negative gearing remains important for Tasmanian property investors. Tax lawyers advise on complex transactions, restructures, and ATO audits.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Goods and Services Tax (GST)</h4>
+      <p>
+        GST at 10% applies to most supplies of goods and services. Businesses with turnover over $75,000 ($150,000 for non-profits) must register. Input tax credits allow GST-registered businesses to claim back GST on purchases. GST-free supplies include basic food, health, and education. Complex GST issues arise in property transactions, financial supplies, and margin schemes. Tax advisers ensure GST compliance and optimal structuring.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">State Taxes - Stamp Duty and Land Tax</h3>
+      <p>
+        Tasmania imposes stamp duty (transfer duty) on property transfers, business asset sales, motor vehicle transfers, and insurance. Rates vary by transaction type. Property stamp duty uses progressive rates with first home buyer concessions. Land tax applies annually to Tasmanian land holdings above thresholds with aggregation rules. Principal place of residence exemption excludes main homes. Primary production land has special provisions. State Revenue Office Tasmania administers these taxes with objection and appeal rights.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Payroll Tax</h3>
+      <p>
+        Tasmanian employers with Australian wages exceeding the threshold ($1.25 million for 2023-24) pay payroll tax at 4.0% (regional employers) or 6.1% (southern Tasmania). Grouping provisions aggregate related businesses' wages. Contractors may be deemed employees for payroll tax. SRO Tasmania audits ensure compliance. Voluntary disclosures provide penalty relief. Tax lawyers advise on payroll tax obligations, grouping, and disputes.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Tax Disputes and Audits</h3>
+      <p>
+        ATO audits examine tax returns for compliance. Taxpayers have rights including representation and reasonable time to respond. Objections challenge ATO decisions with 60-day time limits (four years for small businesses). The Administrative Review Tribunal reviews objection decisions. Federal Court hears appeals on questions of law. Tasmanian taxpayers frequently dispute Part IVA general anti-avoidance provisions and trust distributions. Tax lawyers represent clients in audits, objections, and litigation.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Tax Planning and Restructuring</h3>
+      <p>
+        Tax planning minimizes tax within legal boundaries. Common strategies include income splitting through family trusts, superannuation contributions, negative gearing, and asset protection structures. Business restructures utilize rollover provisions avoiding immediate tax. Tasmanian agricultural businesses have specific tax planning opportunities including farm management deposits. Voluntary disclosures to ATO reduce penalties for past non-compliance. Tax lawyers design compliant structures achieving tax efficiency.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Tax Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Australian Taxation Office:</strong> 13 28 61 (individuals), 13 28 66 (businesses)</li>
+          <li><strong>State Revenue Office Tasmania:</strong> 1300 135 513</li>
+          <li><strong>Tax Practitioners Board:</strong> (03) 9200 8800</li>
+          <li><strong>Inspector-General of Taxation:</strong> 1800 199 010</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Superannuation</h3>
+      <p>
+        Superannuation enjoys concessional tax treatment to encourage retirement savings. Contributions are taxed at 15% (30% for high earners). Earnings taxed at 15% in accumulation phase, tax-free in pension phase. Superannuation death benefits have tax implications depending on beneficiary and payment type. Self-managed superannuation funds (SMSFs) require careful administration and compliance. Tasmanian SMSF trustees face auditor and ATO scrutiny. Tax advisers optimize superannuation strategies.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Tax Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.ato.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Australian Taxation Office</a></li>
+          <li><a href="https://www.sro.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">State Revenue Office Tasmania</a></li>
+          <li><a href="https://www.tpb.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tax Practitioners Board</a></li>
+          <li><a href="https://www.igt.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Inspector-General of Taxation</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'environmental-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Environmental Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Environmental law in Tasmania regulates environmental protection, land use planning, and natural resource management. The Environmental Management and Pollution Control Act 1994 provides Tasmania's environmental framework with the EPA Tasmania as principal regulator. Tasmanian environmental lawyers advise on compliance, planning, contaminated land, forestry, and environmental litigation.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Environment Protection</h3>
+      <p>
+        Tasmania's Environmental Management and Pollution Control Act 1994 requires environmental duty holders to avoid environmental harm. The EPA Tasmania assesses activities requiring environmental assessments and permits. Level 1 and Level 2 activities require environmental permits. Pollution must be controlled and reported. EPA can issue environmental protection notices, improvement notices, and prosecutions. Environmental lawyers advise on permits, compliance, and respond to EPA action.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Planning and Development</h3>
+      <p>
+        Tasmania's Land Use Planning and Approvals Act 1993 regulates land use and development. Local planning schemes (including the Tasmanian Planning Scheme) control development through zones and codes. Development approval required for most development. Local councils assess most applications. The Tasmanian Planning Commission assesses major projects. The Resource Management and Planning Appeal Tribunal hears planning appeals. Environmental impact assessments may be required. Planning lawyers obtain approvals, defend objections, and appeal decisions.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Contaminated Land</h4>
+      <p>
+        Contaminated land creates liability for current and former owners, occupiers, and polluters. The EPA Tasmania maintains the contaminated sites register. Site contamination assessments and remediation required for known contamination. Due diligence investigations identify contamination risks. Historical industrial sites and agricultural chemical use create contamination issues. Environmental lawyers advise purchasers, vendors, and responsible parties on contaminated land issues.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Aboriginal Heritage</h3>
+      <p>
+        Tasmania's Aboriginal heritage is protected under the Aboriginal Heritage Act 1975. Aboriginal heritage requires permits before works. Aboriginal Heritage Tasmania administers heritage protection. Surveys and assessments identify Aboriginal heritage. Traditional owner consultation is important. Unauthorized damage to Aboriginal heritage is an offence. Developers engage with Aboriginal groups and obtain heritage permits.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Forestry and Natural Resources</h3>
+      <p>
+        Forestry in Tasmania is regulated under the Forest Management Act 2013 and Forest Practices Act 1985. Forest practices plans required for forestry operations. Sustainable Timber Tasmania manages state forests. Private forests require forest practices plans. Environmental considerations include water quality, biodiversity, and soil conservation. Mining requires mineral exploration licenses and mining leases under the Mineral Resources Development Act 1995. Environmental lawyers advise on forestry and mining approvals.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Climate Change and Renewable Energy</h3>
+      <p>
+        Tasmania has ambitious renewable energy targets with high renewable energy penetration from hydro. The Climate Change (State Action) Act 2008 establishes emissions reduction targets. Wind and solar development continues. Environmental approvals consider environmental impacts. National Greenhouse and Energy Reporting requires emissions reporting. Environmental lawyers advise on renewable energy projects and regulatory compliance.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Environmental Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Environment Protection Authority Tasmania:</strong> 1300 135 513</li>
+          <li><strong>Department of Natural Resources and Environment Tasmania:</strong> 1300 368 550</li>
+          <li><strong>Tasmanian Planning Commission:</strong> (03) 6165 6828</li>
+          <li><strong>Aboriginal Heritage Tasmania:</strong> (03) 6165 3026</li>
+          <li><strong>Mineral Resources Tasmania:</strong> (03) 6165 4800</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Water and Biodiversity</h3>
+      <p>
+        Tasmanian water resources are managed under the Water Management Act 1999. Water licenses required for taking water. Environmental water provisions protect environmental flows. Tasmania's biodiversity is globally significant with high endemism. The Nature Conservation Act 2002 protects threatened species and reserves. Native vegetation clearing requires assessment. Developers must consider biodiversity impacts and offset requirements. Tasmania's World Heritage Areas have special protection.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Environmental Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://epa.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Environment Protection Authority Tasmania</a></li>
+          <li><a href="https://nre.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Department of Natural Resources and Environment Tasmania</a></li>
+          <li><a href="https://www.planningreform.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Planning Reform</a></li>
+          <li><a href="https://www.heritage.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Aboriginal Heritage Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+
+  'administrative-law': (
+    <>
+      <h2 className="text-3xl font-bold text-slate-900 mb-6">Administrative Law in Tasmania</h2>
+
+      <p className="lead text-xl text-slate-700 mb-6">
+        Administrative law in Tasmania governs the exercise of government power and review of government decisions. The Tasmanian Civil and Administrative Tribunal (TasCAT), Ombudsman Tasmania, and courts review administrative action. Administrative lawyers challenge unlawful decisions, ensure procedural fairness, and hold government accountable to the rule of law.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">TasCAT Review</h3>
+      <p>
+        TasCAT reviews state government decisions across diverse areas including anti-discrimination, guardianship, and other administrative matters. TasCAT provides accessible, low-cost review with less formality than courts. The enabling Act for each decision specifies review rights and grounds. TasCAT conducts hearings de novo or on review basis depending on jurisdiction. Lawyers represent parties in TasCAT proceedings, ensuring procedural rights and presenting persuasive cases.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Judicial Review</h3>
+      <p>
+        Judicial review challenges government decisions on legal grounds including jurisdictional error, procedural unfairness, taking irrelevant considerations into account, failing to consider relevant matters, and unreasonableness. The Supreme Court's judicial review jurisdiction covers Tasmanian government decisions. Federal Court reviews Commonwealth decisions. Judicial review doesn't substitute decision-maker's discretion but ensures lawful exercise. Remedies include quashing decisions, mandamus compelling action, and declarations.
+      </p>
+
+      <h4 className="text-xl font-semibold text-slate-900 mt-6 mb-3">Procedural Fairness</h4>
+      <p>
+        Procedural fairness (natural justice) requires fair hearing and unbiased decision-makers. The hearing rule requires notice, opportunity to be heard, and consideration of submissions. The bias rule requires actual or apprehended freedom from bias. Tasmanian decision-makers must comply unless legislation clearly excludes fairness. Lawyers challenge decisions lacking procedural fairness and advise government on compliance.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Ombudsman Tasmania</h3>
+      <p>
+        Ombudsman Tasmania investigates complaints about Tasmanian government agencies, local councils, and certain public bodies under the Ombudsman Act 1978. The Ombudsman can investigate administrative action, conduct own-motion investigations, and make recommendations. Ombudsman investigations are free and accessible. Findings aren't binding but carry significant weight. Public interest disclosures (whistleblowing) about government wrongdoing are protected. The Ombudsman's annual reports highlight systemic issues.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Freedom of Information</h3>
+      <p>
+        Tasmania's Right to Information Act 2009 provides rights to access government documents. Tasmanian government agencies and local councils are subject to RTI. RTI requests are made in writing. Agencies must respond within 20 working days. Exemptions protect cabinet documents, personal privacy, law enforcement, and commercial confidentiality. Ombudsman Tasmania reviews RTI decisions. The Supreme Court provides further review. RTI promotes government transparency and accountability.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Privacy and Data Protection</h3>
+      <p>
+        Tasmania's Personal Information Protection Act 2004 regulates Tasmanian public sector information handling. Personal Information Protection Principles govern collection, use, disclosure, and security of personal information. The Ombudsman enforces privacy principles and investigates complaints. Data breaches must be managed appropriately. Privacy lawyers advise government and individuals on privacy rights and obligations.
+      </p>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Important Tasmanian Administrative Law Contacts:</h4>
+        <ul className="space-y-2">
+          <li><strong>Tasmanian Civil and Administrative Tribunal:</strong> (03) 6165 6968</li>
+          <li><strong>Ombudsman Tasmania:</strong> 1800 001 170</li>
+          <li><strong>Supreme Court of Tasmania:</strong> (03) 6165 7333</li>
+          <li><strong>Equal Opportunity Tasmania:</strong> 1300 305 062</li>
+        </ul>
+      </div>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Government and Public Law</h3>
+      <p>
+        Tasmanian constitutional law governs Parliament, Executive, and Judiciary relationships. The Constitution Act 1934 establishes Tasmania's constitutional framework. Parliamentary sovereignty, separation of powers, and rule of law are fundamental principles. Statutory interpretation principles guide understanding legislation. Tasmanian public lawyers advise government on lawful exercise of power, legislative drafting, and constitutional issues.
+      </p>
+
+      <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Anti-Discrimination</h3>
+      <p>
+        Tasmania's Anti-Discrimination Act 1998 prohibits discrimination based on protected attributes including age, race, sex, sexual orientation, gender identity, disability, marital status, family responsibilities, pregnancy, and industrial activity. Equal Opportunity Tasmania investigates complaints and attempts conciliation. Unresolved matters proceed to TasCAT. Public authorities must eliminate discrimination and promote equal opportunity. Administrative lawyers argue discrimination matters in TasCAT proceedings.
+      </p>
+
+      <div className="bg-slate-100 border-l-4 border-slate-600 p-6 my-6">
+        <h4 className="font-bold text-slate-900 mb-3">Useful Tasmanian Administrative Law Resources:</h4>
+        <ul className="space-y-2">
+          <li><a href="https://www.justice.tas.gov.au/tascattribunal" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Tasmanian Civil and Administrative Tribunal</a></li>
+          <li><a href="https://www.ombudsman.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Ombudsman Tasmania</a></li>
+          <li><a href="https://equalopportunity.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Equal Opportunity Tasmania</a></li>
+          <li><a href="https://www.supremecourt.tas.gov.au/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Supreme Court of Tasmania</a></li>
+        </ul>
+      </div>
+    </>
+  ),
+}
