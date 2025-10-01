@@ -209,7 +209,7 @@ export async function POST(request: NextRequest) {
 
         // Handle slug validation for firms
         let finalSlug = changes.slug
-        if (changes.slug) {
+        if (changes.slug && pendingChange.firmId) {
           // Ensure the slug is still unique at approval time (in case of conflicts)
           const isSlugAvailable = await db.lawFirm.findUnique({
             where: {
@@ -226,7 +226,7 @@ export async function POST(request: NextRequest) {
                 const existing = await db.lawFirm.findUnique({
                   where: {
                     slug,
-                    NOT: { id: pendingChange.firmId }
+                    NOT: { id: pendingChange.firmId! }
                   }
                 })
                 return !!existing
