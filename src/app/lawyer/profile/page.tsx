@@ -371,7 +371,7 @@ Edit Profile
                     <p className="font-medium text-base md:text-lg text-slate-900">{court.courtName}</p>
                     <p className="text-sm md:text-base text-slate-600 mt-1">{court.jurisdiction}</p>
                   </div>
-                  {court.appearanceCount > 0 && (
+                  {parseInt(court.appearanceCount) > 0 && (
                     <Badge variant="secondary" className="text-sm md:text-base py-1 px-3">
                       {court.appearanceCount} appearances
                     </Badge>
