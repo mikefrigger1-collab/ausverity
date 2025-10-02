@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from "lucide-react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 export default function ContactPage() {
   const router = useRouter()
@@ -231,13 +232,13 @@ export default function ContactPage() {
 
                       <p className="text-sm text-slate-500 text-center">
                         By submitting this form, you agree to our{' '}
-                        <a href="/privacy" className="text-blue-600 hover:underline">
+                        <Link href="/privacy" className="text-blue-600 hover:underline">
                           Privacy Policy
-                        </a>
+                        </Link>
                         {' '}and{' '}
-                        <a href="/terms" className="text-blue-600 hover:underline">
+                        <Link href="/terms" className="text-blue-600 hover:underline">
                           Terms of Service
-                        </a>
+                        </Link>
                       </p>
                     </form>
                   </CardContent>

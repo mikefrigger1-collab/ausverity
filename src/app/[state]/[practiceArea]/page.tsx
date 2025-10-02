@@ -1,3 +1,4 @@
+import React from "react"
 import { notFound } from "next/navigation"
 import { isValidStateCode, getStateByCode, AUSTRALIAN_STATES } from "@/lib/constants/states"
 import { PRACTICE_AREA_CATEGORIES, getPracticeAreaBySlug, isValidPracticeAreaSlug } from "@/lib/constants/practice-areas"
@@ -162,7 +163,7 @@ function getPracticeAreaContent(stateCode: string, practiceAreaSlug: string) {
 }
 
 // Queensland Practice Area Content
-const QLD_CONTENT: Record<string, JSX.Element> = {
+const QLD_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Queensland</h2>
@@ -1191,7 +1192,7 @@ const QLD_CONTENT: Record<string, JSX.Element> = {
 }
 
 // New South Wales Practice Area Content
-const NSW_CONTENT: Record<string, JSX.Element> = {
+const NSW_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in New South Wales</h2>
@@ -2208,7 +2209,7 @@ const NSW_CONTENT: Record<string, JSX.Element> = {
 }
 
 // Victoria Practice Area Content
-const VIC_CONTENT: Record<string, JSX.Element> = {
+const VIC_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Victoria</h2>
@@ -3197,7 +3198,7 @@ const VIC_CONTENT: Record<string, JSX.Element> = {
 }
 
 // South Australia Practice Area Content
-const SA_CONTENT: Record<string, JSX.Element> = {
+const SA_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in South Australia</h2>
@@ -4184,7 +4185,7 @@ const SA_CONTENT: Record<string, JSX.Element> = {
 }
 
 // Western Australia Practice Area Content
-const WA_CONTENT: Record<string, JSX.Element> = {
+const WA_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Western Australia</h2>
@@ -5171,7 +5172,7 @@ const WA_CONTENT: Record<string, JSX.Element> = {
 }
 
 // Northern Territory Practice Area Content
-const NT_CONTENT: Record<string, JSX.Element> = {
+const NT_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Northern Territory</h2>
@@ -6159,7 +6160,7 @@ const NT_CONTENT: Record<string, JSX.Element> = {
 }
 
 // Tasmania Practice Area Content
-const TAS_CONTENT: Record<string, JSX.Element> = {
+const TAS_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in Tasmania</h2>
@@ -7146,7 +7147,7 @@ const TAS_CONTENT: Record<string, JSX.Element> = {
 }
 
 
-const ACT_CONTENT: Record<string, JSX.Element> = {
+const ACT_CONTENT: Record<string, React.ReactElement> = {
   'family-law': (
     <>
       <h2 className="text-3xl font-bold text-slate-900 mb-6">Family Law in the Australian Capital Territory</h2>

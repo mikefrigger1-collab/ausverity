@@ -10,7 +10,7 @@ const updateSchema = z.object({
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication and admin role
@@ -23,13 +23,14 @@ export async function PATCH(
       )
     }
 
+    const { id } = await params
     const body = await request.json()
     const validatedData = updateSchema.parse(body)
 
     // Update the contact message
     const updatedMessage = await db.contactMessage.update({
       where: {
-        id: params.id,
+        id,
       },
       data: {
         ...validatedData,
@@ -43,7 +44,7 @@ export async function PATCH(
 
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid data', details: error.errors },
+        { error: 'Invalid data', details: error.issues },
         { status: 400 }
       )
     }
@@ -57,7 +58,7 @@ export async function PATCH(
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication and admin role
@@ -70,10 +71,12 @@ export async function GET(
       )
     }
 
+    const { id } = await params
+
     // Get specific message
     const message = await db.contactMessage.findUnique({
       where: {
-        id: params.id,
+        id,
       },
     })
 

@@ -244,7 +244,7 @@ export default async function LawyerProfilePage() {
                     <p className="font-medium">{court.courtName}</p>
                     <p className="text-sm text-slate-600">{court.jurisdiction}</p>
                   </div>
-                  {court.appearanceCount > 0 && (
+                  {court.appearanceCount && court.appearanceCount !== '0' && (
                     <Badge variant="secondary">
                       {court.appearanceCount} appearances
                     </Badge>
